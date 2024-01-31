@@ -1,3 +1,10 @@
+/* Replace the string of characters in the global variables below with the 
+share link to your Google Spreadsheet.
+Grab only the characters between "https://docs.google.com/spreadsheets/d/" 
+and  "/edit?usp=sharing" in the URL. 
+Then add "/1", "/2", etc. to point to a specific tab in the spreadsheet. 
+These indexes are 1-based and determined automatically. */
+
 var tab_jobs = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/1";
 var tab_education = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/2";
 var tab_projects = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/3";
