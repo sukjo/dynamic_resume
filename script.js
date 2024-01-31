@@ -11,6 +11,9 @@ var tab_projects = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/3";
 var tab_awards = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/4";
 var tab_skills = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/5";
 
+/* If you change any of the variable names above, 
+make sure to update them throughout the document as well! */
+
 $(document).ready(function () {
   /* -------------------------------------------------------------------------- */
   /*                                     JOBS                                   */
@@ -22,7 +25,7 @@ $(document).ready(function () {
       } else {
         let div = $(
           "<div class='content-chunk'><h3>" +
-            row.Organization +
+            row.Organization + // update each of these according to your own column names (e.g. "row.Company")
             "</h3>" +
             "<p class='position'>" +
             row.Position +
