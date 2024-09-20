@@ -1,31 +1,53 @@
 /* Replace the string of characters in the global variables below with the 
 share link to your Google Spreadsheet.
+
 Grab only the characters between "https://docs.google.com/spreadsheets/d/" 
 and  "/edit?usp=sharing" in the URL. 
+
 Then add "/1", "/2", etc. to point to a specific tab in the spreadsheet. 
 These indexes are 1-based and determined automatically. */
 
-var tab_jobs = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/1";
-var tab_education = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/2";
-var tab_projects = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/3";
-var tab_awards = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/4";
-var tab_skills = "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/5";
+let sections = {
+  1: { name: "jobs", tabURL: "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/2" },
+  2: {
+    name: "education",
+    tabURL: "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/3",
+  },
+  3: {
+    name: "projects",
+    tabURL: "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/4",
+  },
+  4: {
+    name: "awards",
+    tabURL: "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/5",
+  },
+  5: {
+    name: "skills",
+    tabURL: "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/6",
+  },
+};
 
 /* If you change any of the variable names above, 
 make sure to update them throughout the document as well! */
 
 $(document).ready(function () {
-  /* -------------------------------------------------------------------------- */
-  /*                                     JOBS                                   */
-  /* -------------------------------------------------------------------------- */
-  $.getJSON("https://opensheet.elk.sh/" + tab_jobs, function (data) {
+  /* -------------------------------- section 1 ------------------------------- */
+  $.getJSON("https://opensheet.elk.sh/" + sections[1].tabURL, function (data) {
+    const containerDiv = $("<div>", {
+      id: `${sections[1].name}`,
+      class: "container",
+    });
+
+    $("#left").append(`<h2>${sections[1].name}</h2>`);
+    $("#left").append(containerDiv);
+
     data.forEach(function (row) {
       if (row.Visibility == "FALSE") {
         return;
       } else {
-        let div = $(
-          "<div class='content-chunk'><h3>" +
-            row.Organization + // update each of these according to your own column names (e.g. "row.Company")
+        $(
+          "<div class='content-item'><h3>" +
+            row.Organization + // update each of these according to your own column names (e.g. "row.Company"). these are case-sensitive
             "</h3>" +
             "<p class='position'>" +
             row.Position +
@@ -38,23 +60,27 @@ $(document).ready(function () {
             "<p class='description'>" +
             row.Description +
             "</p></div>"
-        ).appendTo("div#jobs-container");
+        ).appendTo(containerDiv);
       }
     });
   });
-});
 
-/* -------------------------------------------------------------------------- */
-/*                                  EDUCATION                                 */
-/* -------------------------------------------------------------------------- */
-$(document).ready(function () {
-  $.getJSON("https://opensheet.elk.sh/" + tab_education, function (data) {
+  /* -------------------------------- section 2 ------------------------------- */
+  $.getJSON("https://opensheet.elk.sh/" + sections[2].tabURL, function (data) {
+    const containerDiv = $("<div>", {
+      id: `${sections[2].name}`,
+      class: "container",
+    });
+
+    $("#right").append(`<h2>${sections[2].name}</h2>`);
+    $("#right").append(containerDiv);
+
     data.forEach(function (row) {
       if (row.Visibility == "FALSE") {
         return;
       } else {
-        let div = $(
-          "<div class='content-chunk'><h3>" +
+        $(
+          "<div class='content-item'><h3>" +
             row.Institution +
             "</h3>" +
             "<p class='degree'>" +
@@ -68,23 +94,27 @@ $(document).ready(function () {
             "<p class='description'>" +
             row.Description +
             "</p></div>"
-        ).appendTo("div#education-container");
+        ).appendTo(containerDiv);
       }
     });
   });
-});
 
-/* -------------------------------------------------------------------------- */
-/*                                  PROJECTS                                  */
-/* -------------------------------------------------------------------------- */
-$(document).ready(function () {
-  $.getJSON("https://opensheet.elk.sh/" + tab_projects, function (data) {
+  /* -------------------------------- section 3 ------------------------------- */
+  $.getJSON("https://opensheet.elk.sh/" + sections[3].tabURL, function (data) {
+    const containerDiv = $("<div>", {
+      id: `${sections[3].name}`,
+      class: "container",
+    });
+
+    $("#right").append(`<h2>${sections[3].name}</h2>`);
+    $("#right").append(containerDiv);
+
     data.forEach(function (row) {
       if (row.Visibility == "FALSE") {
         return;
       } else {
-        let div = $(
-          "<div class='content-chunk'><h3>" +
+        $(
+          "<div class='content-item'><h3>" +
             row.Title +
             "</h3>" +
             "<p class='location-time'>" +
@@ -93,23 +123,27 @@ $(document).ready(function () {
             "<p class='description'>" +
             row.Description +
             "</p></div>"
-        ).appendTo("div#projects-container");
+        ).appendTo(containerDiv);
       }
     });
   });
-});
 
-/* -------------------------------------------------------------------------- */
-/*                                   AWARDS                                   */
-/* -------------------------------------------------------------------------- */
-$(document).ready(function () {
-  $.getJSON("https://opensheet.elk.sh/" + tab_awards, function (data) {
+  /* -------------------------------- section 4 ------------------------------- */
+  $.getJSON("https://opensheet.elk.sh/" + sections[4].tabURL, function (data) {
+    const containerDiv = $("<div>", {
+      id: `${sections[4].name}`,
+      class: "container",
+    });
+
+    $("#right").append(`<h2>${sections[4].name}</h2>`);
+    $("#right").append(containerDiv);
+
     data.forEach(function (row) {
       if (row.Visibility == "FALSE") {
         return;
       } else {
-        let div = $(
-          "<div class='content-chunk'><h3>" +
+        $(
+          "<div class='content-item'><h3>" +
             row.Award +
             "</h3>" +
             "<p class='location-time'>" +
@@ -118,25 +152,38 @@ $(document).ready(function () {
             "<p class='description'>" +
             row.Description +
             "</p></div>"
-        ).appendTo("div#awards-container");
+        ).appendTo(containerDiv);
       }
     });
   });
-});
 
-/* -------------------------------------------------------------------------- */
-/*                                   SKILLS                                   */
-/* -------------------------------------------------------------------------- */
-$(document).ready(function () {
-  $.getJSON("https://opensheet.elk.sh/" + tab_skills, function (data) {
+  /* -------------------------------- section 5 ------------------------------- */
+  $.getJSON("https://opensheet.elk.sh/" + sections[5].tabURL, function (data) {
+    const containerDiv = $("<div>", {
+      id: `${sections[5].name}`,
+      class: "container",
+    });
+
+    $("#right").append(`<h2>${sections[5].name}</h2>`);
+    $("#right").append(containerDiv);
+
     data.forEach(function (row) {
       if (row.Visibility == "FALSE") {
         return;
       } else {
-        let div = $(
-          "<div class='skills-chunk'><p>" + row.Skill + "</p></div>"
-        ).appendTo("div#skills-container");
+        $(
+          `<div class="${sections[5].name}-item"><p>${row.Skill}</p></div`
+        ).appendTo(containerDiv);
       }
+
+      containerDiv.css("margin-top", "1rem");
+      $(`.${sections[5].name}-item`).css({
+        margin: "0.3rem 0.8rem",
+        display: "inline-block",
+      });
+      $(`.${sections[5].name}-item > p`).css({
+        "font-size": "0.8rem",
+      });
     });
   });
 });

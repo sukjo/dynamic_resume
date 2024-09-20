@@ -41,25 +41,16 @@ header {
   width: 50%;
 }
 
-.section {
+.container {
   border-left: 1px solid black;
 }
 
-.content-chunk {
+.content-item {
   margin: 1rem 0rem 1rem 0.8rem;
 }
 
-.content-chunk > * {
+.content-item > * {
   padding-bottom: 0.25rem;
-}
-
-.skills-chunk {
-  margin: 0.3rem 0.8rem;
-  display: inline-block;
-
-  & p {
-    font-size: 0.8rem;
-  }
 }
 
 h2,
