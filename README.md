@@ -1,6 +1,6 @@
 ![screenshot of a the formatted resume in a web browser](/screengrabs/screenshot_0.png "resume preview")
 
-# Dyanmic Résumé
+# Dynamic Résumé
 
 This template allows you to store your résumé data in a Google Spreadsheet and automatically format it in a single-page, print-ready layout using HTML/CSS/JavaScript.
 
