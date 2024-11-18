@@ -8,7 +8,10 @@ Then add "/1", "/2", etc. to point to a specific tab in the spreadsheet.
 These indexes are 1-based and determined automatically. */
 
 let sections = {
-  1: { name: "jobs", tabURL: "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/2" },
+  1: {
+    name: "experience",
+    tabURL: "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/2",
+  },
   2: {
     name: "education",
     tabURL: "194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/3",
@@ -123,7 +126,7 @@ $(document).ready(function () {
           } else {
             $(
               "<div class='item'><h3>" +
-                row.Title +
+                row.Projects +
                 "</h3>" +
                 "<p class='location-time'>" +
                 row.Time +

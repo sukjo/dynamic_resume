@@ -1,0 +1,165 @@
+/* Everything below is customizable according to your stylistic preferences. */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 70vw;
+  margin: 2rem 2rem 1rem 2rem;
+}
+
+#data {
+  width: 70vw;
+  margin: 0rem 2rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  width: calc(70vw / 2);
+}
+
+#left {
+  margin-right: 1rem;
+  width: 60%;
+}
+
+#right {
+  margin-left: 1rem;
+  width: 40%;
+}
+
+.sub-container {
+  border-left: 1px solid black;
+}
+
+.item {
+  margin: 1rem 0rem 1rem 0.8rem;
+}
+
+.item > * {
+  padding-bottom: 0.25rem;
+}
+
+h2,
+h3 {
+  font-family: monospace;
+}
+
+h1 {
+  font-family: serif;
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+h2 {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.25rem;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.2rem;
+  color: gray;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07rem;
+}
+
+header p {
+  font-size: 1rem;
+}
+
+p {
+  font-family: serif;
+  font-size: 1rem;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.description {
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  line-height: 1.25rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 responsive                                 */
+/* -------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 768px) {
+  #data {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 70vw;
+  }
+
+  #left {
+    margin-right: 0rem;
+  }
+
+  #right {
+    margin-left: 0rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              print formatting                              */
+/* -------------------------------------------------------------------------- */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0.25in;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  .container {
+    max-height: calc(100% - 2cm);
+    overflow: auto;
+  }
+
+  header {
+    width: 90vw;
+    margin: 2rem;
+  }
+
+  #data {
+    width: 90vw;
+    margin: 0rem 2rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .column {
+    width: calc(90vw / 2);
+  }
+}

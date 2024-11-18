@@ -1,6 +1,6 @@
 ![screenshot of a the formatted resume in a web browser](/screengrabs/screenshot_0.png "resume preview")
 
-# Dynamic Résumé
+# Dynamic Résumé (currently under construction!)
 
 This template allows you to store your resume data in a Google Spreadsheet and automatically format it in a single-page, print-ready layout using HTML/CSS/JavaScript. Since the resulting file is a webpage, you can also use it to host your resume online. You can preview the final product at [dynamic-resume-preview.netlify.app](https://dynamic-resume-preview.netlify.app/).
 
