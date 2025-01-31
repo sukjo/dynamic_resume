@@ -22,27 +22,15 @@ let sections = {
 };
 
 $(document).ready(function () {
-  const leftcol = $("<div>", {
-    id: "left",
-    class: "column",
-  });
-  const rightcol = $("<div>", {
-    id: "right",
-    class: "column",
-  });
-  $("#main").append(leftcol);
-  $("#main").append(rightcol);
-
   /* -------------------------------- section 1 ------------------------------- */
   $.getJSON("https://opensheet.elk.sh/" + sections[1].tabURL)
     .done(function (data_1) {
       const containerDiv = $("<div>", {
         id: `${sections[1].name}`,
-        class: "sub-container",
       });
 
-      leftcol.append(`<h2>${sections[1].name}</h2>`);
-      leftcol.append(containerDiv);
+      $("#main").append(`<h2>${sections[1].name}</h2>`);
+      $("#main").append(containerDiv);
 
       data_1.forEach(function (row) {
         if (row.Visibility == "FALSE") {
@@ -50,18 +38,16 @@ $(document).ready(function () {
         } else {
           // update each of these according to your own column names (e.g. "row.Company"). these are case-sensitive
           $(
-            `<div class='item'><h3>
-              ${row.Organization}
+            `<div class='item'><div class="item-header"><h3>
+              ${row.Organization}, ${row.Location}
               </h3>
-              <p class='position'>
-              ${row.Position}
-              </p>
-              <p class='location-time'>
-              ${row.Location}
-                ⁕  
+              <p>
               ${row.Time}
               </p>
-              <p class='description'>
+              </div>
+              <p class='position'>
+              ${row.Position}
+              </p><p class='description'>
               ${row.Description}
               </p></div>`
           ).appendTo(containerDiv);
@@ -76,29 +62,26 @@ $(document).ready(function () {
       function (data_2) {
         const containerDiv = $("<div>", {
           id: `${sections[2].name}`,
-          class: "sub-container",
         });
 
-        rightcol.append(`<h2>${sections[2].name}</h2>`);
-        rightcol.append(containerDiv);
+        $("#main").append(`<h2>${sections[2].name}</h2>`);
+        $("#main").append(containerDiv);
 
         data_2.forEach(function (row) {
           if (row.Visibility == "FALSE") {
             return;
           } else {
             $(
-              `<div class='item'><h3>
-                ${row.Institution}
+              `<div class='item'><div class="item-header"><h3>
+                ${row.Institution}, ${row.Location}
                 </h3>
-                <p class='degree'>
-                ${row.Degree}
-                </p>
-                <p class='location-time'>
-                ${row.Location}
-                  ⁕  
+                <p>
                 ${row.Time}
                 </p>
-                <p class='description'>
+                </div>
+                <p class='degree'>
+                ${row.Degree}
+                </p><p class='description'>
                 ${row.Description}
                 </p></div>`
             ).appendTo(containerDiv);
@@ -114,23 +97,23 @@ $(document).ready(function () {
       function (data_3) {
         const containerDiv = $("<div>", {
           id: `${sections[3].name}`,
-          class: "sub-container",
         });
 
-        rightcol.append(`<h2>${sections[3].name}</h2>`);
-        rightcol.append(containerDiv);
+        $("#main").append(`<h2>${sections[3].name}</h2>`);
+        $("#main").append(containerDiv);
 
         data_3.forEach(function (row) {
           if (row.Visibility == "FALSE") {
             return;
           } else {
             $(
-              `<div class='item'><h3>
+              `<div class='item'><div class="item-header"><h3>
                 ${row.Project}
                 </h3>
-                <p class='location-time'>
+                <p>
                 ${row.Time}
                 </p>
+                </div>
                 <p class='description'>
                 ${row.Description}
                 </p></div>`
@@ -147,23 +130,23 @@ $(document).ready(function () {
       function (data_4) {
         const containerDiv = $("<div>", {
           id: `${sections[4].name}`,
-          class: "sub-container",
         });
 
-        rightcol.append(`<h2>${sections[4].name}</h2>`);
-        rightcol.append(containerDiv);
+        $("#main").append(`<h2>${sections[4].name}</h2>`);
+        $("#main").append(containerDiv);
 
         data_4.forEach(function (row) {
           if (row.Visibility == "FALSE") {
             return;
           } else {
             $(
-              `<div class='item'><h3>
+              `<div class='item'><div class="item-header"><h3>
                 ${row.Award}
                 </h3>
-                <p class='location-time'>
+                <p>
                 ${row.Time}
                 </p>
+                </div>
                 <p class='description'>
                 ${row.Description}
                 </p></div>`
@@ -180,29 +163,21 @@ $(document).ready(function () {
       function (data_5) {
         const containerDiv = $("<div>", {
           id: `${sections[5].name}`,
-          class: "sub-container",
         });
+        const list = $("<ul>", {
+          id: "skills-list",
+        });
+        list.appendTo(containerDiv);
 
-        rightcol.append(`<h2>${sections[5].name}</h2>`);
-        rightcol.append(containerDiv);
+        $("#main").append(`<h2>${sections[5].name}</h2>`);
+        $("#main").append(containerDiv);
 
         data_5.forEach(function (row) {
           if (row.Visibility == "FALSE") {
             return;
           } else {
-            $(
-              `<div class="${sections[5].name}-item"><p>${row.Skill}</p></div`
-            ).appendTo(containerDiv);
+            $(`<li>${row.Skill}</li>`).appendTo(list);
           }
-
-          containerDiv.css("margin", "1rem 0");
-          $(`.${sections[5].name}-item`).css({
-            margin: "0.3rem 0.8rem",
-            display: "inline-block",
-          });
-          $(`.${sections[5].name}-item > p`).css({
-            "font-size": "0.8rem",
-          });
         });
       }
     );

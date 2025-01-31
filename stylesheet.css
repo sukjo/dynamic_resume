@@ -1,16 +1,26 @@
+@import url("/globalstyles.css");
+
 * {
   margin: 0px;
   padding: 0px;
 }
 
 html {
-  font-size: 18px;
+  font-size: 14px;
+  background: linear-gradient(var(--sky-blue), #fff);
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
+  height: 100vh;
+  overflow: auto;
+}
+
+#universe {
   width: 50vw;
   margin: 3rem auto;
-  font-family: "Bona Nova", serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-style: normal;
 
@@ -19,19 +29,63 @@ body {
   }
 }
 
+header {
+  margin-top: 5rem;
+}
+
 h1 {
   font-family: Ballet, cursive;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 5rem;
+  font-size: 7rem;
   text-align: center;
-  line-height: 3rem;
-  margin: 4rem 0;
+  line-height: 5rem;
+  text-shadow: 0px 0px 6px rgba(255, 255, 255);
+  color: var(--sky-blue);
 }
 
 #for-the {
-  font-size: 2rem;
+  font-size: 4rem;
+}
+
+#date-time {
+  text-align: center;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 5rem;
+  color: var(--sky-blue);
+}
+
+.sticky {
+  max-width: 30vw;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+code {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+code:not(.lang-jsx) {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  padding: 3px;
+}
+
+/* code.lang-jsx {
+  background-color: rgba(255, 255, 255, 0.2);
+} */
+
+.code-block {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  margin: 1rem 0;
+  padding: 3px;
 }
 
 /* .bona-nova-bold {

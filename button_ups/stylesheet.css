@@ -16,67 +16,57 @@ body {
 }
 
 header {
-  width: 70vw;
+  width: 50vw;
   margin: 2rem 2rem 1rem 2rem;
+  text-align: center;
 }
 
 #main {
-  width: 70vw;
+  width: 50vw;
   margin: 0rem 2rem;
   display: flex;
-  flex-direction: row;
-}
-
-.column {
-  width: calc(70vw / 2);
-}
-
-#left {
-  margin-right: 1rem;
-  width: 60%;
-}
-
-#right {
-  margin-left: 1rem;
-  width: 40%;
-}
-
-.sub-container {
-  border-left: 1px solid black;
+  flex-direction: column;
 }
 
 .item {
-  margin: 1rem 0rem 1rem 0.8rem;
+  margin: 1rem 0rem;
 }
 
 .item > * {
   padding-bottom: 0.25rem;
 }
 
+.item-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 h2,
 h3 {
-  font-family: monospace;
+  font-family: serif;
 }
 
 h1 {
-  font-family: serif;
+  font-family: sans-serif;
   font-weight: 300;
   font-size: 3rem;
 }
 
 h2 {
   font-weight: 400;
-  font-style: italic;
-  font-size: 1.25rem;
-  font-variant-caps: all-small-caps;
-  letter-spacing: 0.2rem;
-  color: gray;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  color: black;
+  background-color: rgb(240, 240, 240);
+  border-bottom: 1px solid black;
 }
 
 h3 {
   font-weight: 700;
   font-size: 1rem;
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: 0.07rem;
 }
 
@@ -85,7 +75,7 @@ header p {
 }
 
 p {
-  font-family: serif;
+  font-family: sans-serif;
   font-size: 1rem;
 }
 
@@ -101,12 +91,25 @@ a:visited {
   line-height: 1.25rem;
 }
 
+#skills-list {
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  padding-top: 1rem;
+}
+
+ul#skills-list {
+  list-style-position: outside;
+  list-style-type: "• ";
+  padding-left: 1ch;
+  columns: 4;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                 responsive                                 */
 /* -------------------------------------------------------------------------- */
 
 @media only screen and (max-width: 768px) {
-  #main {
+  #data {
     flex-direction: column;
   }
 
@@ -156,10 +159,6 @@ a:visited {
     width: 90vw;
     margin: 0rem 2rem;
     display: flex;
-    flex-direction: row;
-  }
-
-  .column {
-    width: calc(90vw / 2);
+    flex-direction: column;
   }
 }

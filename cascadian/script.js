@@ -193,22 +193,7 @@ $(document).ready(function () {
 
       $(":root").css("--s5-row-count", rowCount);
     });
-
-  /* --------------------------------- tooltip -------------------------------- */
-  const button = $("#tt-min-button");
-  const tt = $("#tooltip");
-
-  let ttOpen = true;
-
-  button.click(() => {
-    if (ttOpen) {
-      tt.css("height", "0px");
-      button.html("+");
-      ttOpen = false;
-    } else {
-      tt.css("height", "fit-content");
-      button.html("-");
-      ttOpen = true;
-    }
-  });
+  /* -------------------------------------------------------------------------- */
+  /*                        fill in any new sections here                       */
+  /* -------------------------------------------------------------------------- */
 });

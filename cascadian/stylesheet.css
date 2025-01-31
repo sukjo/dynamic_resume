@@ -1,7 +1,8 @@
+@import url("/globalstyles.css");
+
 * {
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box;
 }
 
 html {
@@ -16,7 +17,7 @@ html {
   --s5-row-count: 1;
   --doc-padding: 3rem;
   --first-col-sz: 0.65fr;
-  --accent-col: cornflowerblue;
+  --accent-col: dodgerblue;
 }
 
 body {
@@ -272,29 +273,4 @@ a:visited {
   h1 {
     font-size: 1.5rem;
   }
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                   tooltip                                  */
-/* -------------------------------------------------------------------------- */
-
-#tooltip {
-  position: absolute;
-  right: 2rem;
-  bottom: 2rem;
-  width: 30vw;
-  height: fit-content;
-  padding: 1rem;
-  border: 1px solid black;
-}
-
-#tt-min-button {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 2rem;
-}
-
-#tt-min-button:hover {
-  cursor: pointer;
 }

@@ -1,0 +1,143 @@
+:root {
+  --sky-blue: #6484e1;
+}
+
+/* --------------------------------- tooltip -------------------------------- */
+
+.tooltip {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: 30vw;
+  height: fit-content;
+  padding: 1rem;
+
+  border-top: 2px solid rgb(233 233 233);
+  border-right: 2px solid rgb(181 181 181);
+  border-bottom: 2px solid rgb(181 181 181);
+  border-left: 2px solid rgb(233 233 233);
+
+  border-radius: 10px;
+  background-color: rgba(100, 132, 225, 0.266);
+  backdrop-filter: blur(6px);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+
+ul {
+  list-style-type: "✴ ";
+}
+
+ul.main-list {
+  margin-left: 2ch;
+}
+
+ul.tt-list {
+  margin-left: 4ch;
+}
+
+.tt-list > li {
+  padding-bottom: 0.5rem;
+}
+
+.tt-list > li:first-of-type {
+  padding-top: 0.5rem;
+}
+
+.tooltip:hover {
+  cursor: default;
+}
+
+.tooltip > summary:hover {
+  cursor: pointer;
+}
+
+a:visited {
+  color: inherit;
+}
+
+@media only screen and (max-width: 588px) {
+  .tooltip {
+    width: 50vw;
+  }
+}
+
+@media print {
+  .tooltip,
+  .use {
+    display: none;
+  }
+}
+
+/* ------------------------------- use button ------------------------------- */
+
+a.use {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+
+  width: 6rem;
+  height: 6rem;
+  padding: 1rem;
+  border-radius: 100px;
+  border-top: 2px solid rgb(233 233 233);
+  border-right: 2px solid rgb(181 181 181);
+  border-bottom: 2px solid rgb(181 181 181);
+  border-left: 2px solid rgb(233 233 233);
+  text-align: center;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  /* line-height: 2rem; */
+
+  vertical-align: bottom;
+  transform: rotate(20deg);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--sky-blue) !important;
+  /* background-color: white; */
+  background-color: rgba(255, 255, 255, 0.266);
+  backdrop-filter: blur(6px);
+
+  transition: background-color 0.2s cubic-bezier(0.33, 1, 0.68, 1),
+    color 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+a.use:hover {
+  color: white !important;
+  background-color: var(--sky-blue);
+}
+
+a.use::after {
+  content: "";
+}
+
+span.arrow {
+  font-size: 3rem;
+  color: var(--sky-blue);
+}
+
+span.arrow:hover {
+  animation: wiggle 0.15s ease-in-out;
+  animation-iteration-count: 3;
+  color: white;
+}
+
+@keyframes wiggle {
+  0% {
+    rotate: 0deg;
+  }
+  25% {
+    rotate: 16deg;
+  }
+  50% {
+    rotate: 0;
+  }
+  75% {
+    rotate: -16;
+  }
+}
