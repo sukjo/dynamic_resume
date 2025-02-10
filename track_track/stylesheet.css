@@ -20,6 +20,18 @@ header {
   margin: 2rem 2rem 1rem 2rem;
 }
 
+#header-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+#header-details > :not(:last-child)::after {
+  content: "\2734";
+  padding-left: 0.5rem;
+}
+
 #main {
   width: 70vw;
   margin: 0rem 2rem;
@@ -51,6 +63,18 @@ header {
 
 .item > * {
   padding-bottom: 0.25rem;
+}
+
+.location-time {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.location-time > :not(:last-child)::after {
+  content: "\2734";
+  padding-left: 0.5rem;
 }
 
 h2,
@@ -129,12 +153,18 @@ a:visited {
 
 @media print {
   @page {
-    size: A4;
+    /* size: letter portrait; */
     margin: 0.25in;
+
+    orphans: 3;
+    widows: 3;
   }
 
   html {
     font-size: 14px;
+    background: white;
+    -webkit-print-color-adjust: exact; /* Ensures colors are preserved in WebKit browsers */
+    print-color-adjust: exact; /* Standard property */
   }
 
   html,
@@ -150,6 +180,7 @@ a:visited {
   header {
     width: 90vw;
     margin: 2rem;
+    break-after: avoid;
   }
 
   #main {

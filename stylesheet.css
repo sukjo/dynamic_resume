@@ -5,6 +5,12 @@
   padding: 0px;
 }
 
+:root {
+  --padding: 1rem;
+  --margin: 3rem;
+  --u-width: 50vw;
+}
+
 html {
   font-size: 14px;
   background: linear-gradient(var(--sky-blue), #fff);
@@ -18,14 +24,19 @@ body {
 }
 
 #universe {
-  width: 50vw;
-  margin: 3rem auto;
-  font-family: Arial, Helvetica, sans-serif;
+  width: var(--u-width);
+  margin: var(--margin) auto;
+
+  font-family: "Old Standard TT", serif;
   font-weight: 400;
   font-style: normal;
 
-  & > * {
-    padding: 0.5rem;
+  & > p,
+  li,
+  h2,
+  h3,
+  h4 {
+    padding-bottom: var(--padding);
   }
 }
 
@@ -38,6 +49,7 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+
   font-size: 7rem;
   text-align: center;
   line-height: 5rem;
@@ -50,11 +62,22 @@ h1 {
 }
 
 #date-time {
+  font-family: "DM Mono", serif;
+  font-weight: 800;
+  font-style: normal;
   text-align: center;
-  font-weight: 900;
   text-transform: uppercase;
   line-height: 5rem;
   color: var(--sky-blue);
+}
+
+ul.main-list {
+  margin-top: 1rem;
+  margin-left: 2ch;
+}
+
+ul.main-list > li {
+  padding-left: 1ch;
 }
 
 .sticky {
@@ -66,8 +89,9 @@ h1 {
 }
 
 code {
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 500;
+  font-family: "DM Mono", serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 0.8rem;
 }
 
@@ -77,25 +101,79 @@ code:not(.lang-jsx) {
   padding: 3px;
 }
 
-/* code.lang-jsx {
-  background-color: rgba(255, 255, 255, 0.2);
-} */
-
 .code-block {
+  width: var(--u-width);
+  height: fit-content;
+  overflow-x: scroll;
+  overflow-y: hidden;
+
   background-color: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(6, 5, 80, 0) 36%,
+    rgba(9, 9, 121, 0) 100%
+  );
   border-radius: 3px;
   margin: 1rem 0;
   padding: 3px;
+
+  position: relative;
 }
 
-/* .bona-nova-bold {
-  font-family: "Bona Nova", serif;
-  font-weight: 700;
-  font-style: normal;
+.code-block::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  border: 1px solid red;
 }
 
-.bona-nova-regular-italic {
-  font-family: "Bona Nova", serif;
-  font-weight: 400;
-  font-style: italic;
-} */
+thead {
+  text-align: left;
+}
+
+tr {
+}
+
+td {
+  padding-right: 1rem;
+}
+
+footer {
+  width: var(--u-width);
+  height: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: var(--margin) auto;
+
+  & > a {
+    text-align: center;
+
+    font-family: "Old Standard TT", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 0.8rem;
+
+    text-transform: uppercase;
+    text-decoration: none !important;
+  }
+
+  & > a::after {
+    content: " \2197";
+  }
+}
+
+@media only screen and (max-width: 668px) {
+  :root {
+    --u-width: 80vw;
+  }
+
+  .sticky {
+    max-width: var(--u-width);
+  }
+}

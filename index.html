@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DR4DH</title>
+    <title>Dynamic Resumes for the Dynamic Being</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="stylesheet.css" type="text/css" />
@@ -75,17 +75,20 @@
 
       <h2>Tutorial</h2>
       <p>
-        This tutorial teaches you how to set up your resume using a Google
-        Spreadsheet so that it automatically formats into a single-page,
-        print-friendly layout using HTML, CSS, JavaScript, and jQuery. Since the
-        resulting file is a webpage, you can also use it to host your resume
-        online.
+        This tutorial teaches you how to set up your resume using a spreadsheet
+        so you can create different versions of your work history with the click
+        of a checkbox. The checked data is automatically formatted into a
+        single-page, print-friendly layout using HTML, CSS, JavaScript, and
+        jQuery. Since the resulting file is a webpage, you can also use it to
+        host your resume online.
       </p>
       <h3>Setting up the API</h3>
       <ol>
         <li>
           Make a copy of this
           <a
+            target="_blank"
+            rel="noopener noreferrer external"
             href="https://docs.google.com/spreadsheets/d/194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/edit?usp=sharing"
             >Google Spreadsheet</a
           >. Change the sharing settings so that &quot;anyone with the
@@ -98,9 +101,15 @@
           use.
           <ol>
             <ul class="main-list">
-              <li><a href="/track_track/">track_track</a></li>
-              <li><a href="/cascadian/">cascadian</a></li>
-              <li><a href="/button_ups/">button_ups</a></li>
+              <li>
+                <a target="_blank" href="/track_track/">track_track</a>
+              </li>
+              <li>
+                <a target="_blank" href="/cascadian/">cascadian</a>
+              </li>
+              <li>
+                <a target="_blank" href="/button_ups/">button_ups</a>
+              </li>
             </ul>
           </ol>
         </li>
@@ -125,10 +134,9 @@
         </li>
         <li>
           Click “copy link” and paste the link somewhere you can edit it real
-          quick. Then copy only the characters between &quot;<a
-            href="https://docs.google.com/spreadsheets/d/"
-            >https://docs.google.com/spreadsheets/d/</a
-          >&quot; and &quot;/edit?usp=sharing&quot; in the URL. Replace all the
+          quick. Then copy only the characters between &quot;
+          https://docs.google.com/spreadsheets/d/&quot; and
+          &quot;/edit?usp=sharing&quot; in the URL. Replace all the
           <code>tabURL</code>s in the Glitch file with this new string.
           <ol>
             <img
@@ -165,7 +173,7 @@
         <thead>
           <tr>
             <th><strong>DO CHANGE</strong></th>
-            <th><strong>DO CHANGE + UPDATE</strong></th>
+            <th><strong>DO CHANGE & UPDATE</strong></th>
             <th><strong>DO NOT CHANGE</strong></th>
           </tr>
         </thead>
@@ -263,11 +271,15 @@
         aren’t familiar with these on a conceptual basis, I’d recommend you read
         an
         <a
+          target="_blank"
+          rel="noopener noreferrer external"
           href="https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/"
           >explainer</a
         >
         first. It’d also be helpful to familiarize yourself with
         <a
+          target="_blank"
+          rel="noopener noreferrer external"
           href="https://www.educative.io/answers/string-literals-vs-template-literals"
           >string literals and/or template literals</a
         >. Even then, you’ll probably have some questions on how to implement a
@@ -470,8 +482,14 @@
 
       <p>
         Fonts are easy to update. To insert a custom font, you can go to a
-        source like <a href="https://fonts.google.com/">fonts.google.com</a> and
-        select some font families you want to use. Once you have your cart
+        source like
+        <a
+          target="_blank"
+          rel="noopener noreferrer external"
+          href="https://fonts.google.com/"
+          >fonts.google.com</a
+        >
+        and select some font families you want to use. Once you have your cart
         filled, follow the embed instructions to install them in your template.
       </p>
       <h4>Colors</h4>
@@ -482,7 +500,10 @@
         <code>border</code>. These lines are the only instances of color that
         I’ve already defined in the templates. You can swap out the color names
         (e.g. <code>black</code>, <code>dodgerblue</code>) with any other
-        <a href="https://www.w3schools.com/cssref/css_colors.php"
+        <a
+          target="_blank"
+          rel="noopener noreferrer external"
+          href="https://www.w3schools.com/cssref/css_colors.php"
           >supported CSS color</a
         >
         or a hex, RGB, HSL, or HWB value.
@@ -496,36 +517,54 @@
       <h2 id="general-caveats">General Caveats</h2>
       <ul>
         <li>
-          If your print preview extends beyond one page, you need to cut down on
-          the number of visible data rows or otherwise finesse the CSS to fit
-          everything you want. I would recommend the former option to keep all
+          If you're printing your resume out on paper, I'd recommend doing it
+          from Firefox, Chrome, or an otherwise Chromium-based browser. Do NOT
+          use Safari. Safari does not allow direct margin adjustments within the
+          print settings so you'll find that the content runs off the edges when
+          you try to print.
+        </li>
+        <li>
+          If your print preview extends beyond one page, you need to 1) cut down
+          on the number of visible data rows and/or 2) update the CSS to fit
+          everything you want (i.e. by making the text smaller, reducing line
+          height or padding). I would recommend the former option to keep all
           information concise, legible, and relevant, and to abide by the
           general rule of thumb to keep resumes at a maximum length of one page.
         </li>
         <li>
-          In order to use this configuration, your spreadsheet has to be
-          accessible to anyone on the internet with the link. This means your
-          backend data will be visible to anyone. This does NOT mean that anyone
-          will be able to comment on or edit your data, nor does it mean that
-          someone will be able to “hack” your Google spreadsheet and change the
-          data—actually, it’s highly unlikely that someone will be able to find
-          your spreadsheet online at all without you sharing the link
-          explicitly, given that each sheet is identified by a random string of
-          characters. The main action item for you here is to keep any sensitive
-          information (i.e. passwords, birth dates, etc.) off your spreadsheet
-          just in case a bad actor stumbles upon it.
+          In order to use this template, your spreadsheet has to be accessible
+          to anyone on the internet with the link. This means your backend data
+          will be visible to anyone. This does NOT mean that anyone will be able
+          to comment on or edit your data, nor does it mean that someone will be
+          able to “hack” your Google spreadsheet and change the data—actually,
+          it’s highly unlikely that someone will be able to find your
+          spreadsheet online at all without you sharing the link explicitly,
+          given that each sheet is identified by a random string of characters.
+          The main action item for you here is to keep any sensitive information
+          (i.e. passwords, birth dates, etc.) off your spreadsheet just in case
+          a bad actor stumbles upon it.
         </li>
       </ul>
       <h2 id="closeout">Closeout</h2>
       <p>
         Congrats! You’ve made it to the end of the tutorial &#9786; Thanks for
         your willingness to learn new things and invest time in a process that
-        will pay you forward in job searches to come.
+        will pay you forward for job apps to come.
       </p>
     </div>
     <footer>
-      <a target="_blank" href="https://github.com/sukjo/dynamic_resume">repo</a>
-      <a target="_blank" href="https://joannesuk.com/">author</a>
+      <a
+        target="_blank"
+        rel="noopener noreferrer external"
+        href="https://github.com/sukjo/dynamic_resume"
+        >project repository</a
+      >
+      <a
+        target="_blank"
+        rel="noopener noreferrer author"
+        href="https://joannesuk.com/"
+        >author</a
+      >
     </footer>
   </body>
 </html>

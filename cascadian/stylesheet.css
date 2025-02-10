@@ -252,12 +252,18 @@ a:visited {
 
 @media print {
   @page {
-    size: A4;
+    /* size: letter portrait; */
     margin: 0.25in;
+
+    orphans: 3;
+    widows: 3;
   }
 
   html {
     font-size: 14px;
+    background: white;
+    -webkit-print-color-adjust: exact; /* Ensures colors are preserved in WebKit browsers */
+    print-color-adjust: exact; /* Standard property */
   }
 
   html,
@@ -272,5 +278,10 @@ a:visited {
 
   h1 {
     font-size: 1.5rem;
+    break-after: avoid;
+  }
+
+  a::after {
+    content: "";
   }
 }

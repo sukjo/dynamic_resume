@@ -21,6 +21,18 @@ header {
   text-align: center;
 }
 
+#header-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#header-details > :not(:last-child)::after {
+  content: "\2734";
+  padding-left: 1rem;
+}
+
 #main {
   width: 50vw;
   margin: 0rem 2rem;
@@ -124,6 +136,23 @@ ul#skills-list {
   #right {
     margin-left: 0rem;
   }
+
+  #header-details {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #header-details > :not(:last-child)::after {
+    display: none;
+  }
+
+  .item-header {
+    flex-direction: column;
+  }
+
+  ul#skills-list {
+    columns: 3;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -132,12 +161,18 @@ ul#skills-list {
 
 @media print {
   @page {
-    size: A4;
+    /* size: letter portrait; */
     margin: 0.25in;
+
+    orphans: 3;
+    widows: 3;
   }
 
   html {
     font-size: 14px;
+    background: white;
+    -webkit-print-color-adjust: exact; /* Ensures colors are preserved in WebKit browsers */
+    print-color-adjust: exact; /* Standard property */
   }
 
   html,
@@ -153,6 +188,7 @@ ul#skills-list {
   header {
     width: 90vw;
     margin: 2rem;
+    break-after: avoid;
   }
 
   #main {

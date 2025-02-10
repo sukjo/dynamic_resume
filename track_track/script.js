@@ -56,11 +56,14 @@ $(document).ready(function () {
               <p class='position'>
               ${row.Position}
               </p>
-              <p class='location-time'>
-              ${row.Location}
-                ⁕  
-              ${row.Time}
-              </p>
+              <div class="location-time">
+                <p class='location'>
+                ${row.Location}
+                </p>
+                <p class='time'>
+                ${row.Time}
+                </p>
+              </div>
               <p class='description'>
               ${row.Description}
               </p></div>`
@@ -93,11 +96,14 @@ $(document).ready(function () {
                 <p class='degree'>
                 ${row.Degree}
                 </p>
-                <p class='location-time'>
+              <div class="location-time">
+                <p class='location'>
                 ${row.Location}
-                  ⁕  
+                </p>
+                <p class='time'>
                 ${row.Time}
                 </p>
+              </div>
                 <p class='description'>
                 ${row.Description}
                 </p></div>`
@@ -128,7 +134,7 @@ $(document).ready(function () {
               `<div class='item'><h3>
                 ${row.Project}
                 </h3>
-                <p class='location-time'>
+                <p class='time'>
                 ${row.Time}
                 </p>
                 <p class='description'>
@@ -161,7 +167,7 @@ $(document).ready(function () {
               `<div class='item'><h3>
                 ${row.Award}
                 </h3>
-                <p class='location-time'>
+                <p class='time'>
                 ${row.Time}
                 </p>
                 <p class='description'>

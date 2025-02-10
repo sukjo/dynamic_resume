@@ -4,7 +4,7 @@
 
 /* --------------------------------- tooltip -------------------------------- */
 
-.tooltip {
+details.tooltip {
   position: fixed;
   right: 2rem;
   bottom: 2rem;
@@ -19,6 +19,8 @@
 
   border-radius: 10px;
   background-color: rgba(100, 132, 225, 0.266);
+  -moz-backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 
   font-family: Arial, Helvetica, sans-serif;
@@ -27,22 +29,24 @@
 }
 
 ul {
-  list-style-type: "✴ ";
-}
+  list-style-type: "\2734 ";
+  margin-left: 1ch;
 
-ul.main-list {
-  margin-left: 2ch;
+  & > li {
+    padding-left: 1ch;
+  }
 }
 
 ul.tt-list {
   margin-left: 4ch;
 }
 
-.tt-list > li {
+ul.tt-list > li {
   padding-bottom: 0.5rem;
+  padding-left: 1ch;
 }
 
-.tt-list > li:first-of-type {
+ul.tt-list > li:first-of-type {
   padding-top: 0.5rem;
 }
 
@@ -56,19 +60,6 @@ ul.tt-list {
 
 a:visited {
   color: inherit;
-}
-
-@media only screen and (max-width: 588px) {
-  .tooltip {
-    width: 50vw;
-  }
-}
-
-@media print {
-  .tooltip,
-  .use {
-    display: none;
-  }
 }
 
 /* ------------------------------- use button ------------------------------- */
@@ -93,14 +84,20 @@ a.use {
   /* line-height: 2rem; */
 
   vertical-align: bottom;
+  -moz-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
   transform: rotate(20deg);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: var(--sky-blue) !important;
-  /* background-color: white; */
+
   background-color: rgba(255, 255, 255, 0.266);
+  -webkit-backdrop-filter: blur(6px);
+  -moz-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 
   transition: background-color 0.2s cubic-bezier(0.33, 1, 0.68, 1),
@@ -139,5 +136,20 @@ span.arrow:hover {
   }
   75% {
     rotate: -16;
+  }
+}
+
+/* ------------------------------ media queries ----------------------------- */
+
+@media only screen and (max-width: 588px) {
+  .tooltip {
+    width: 50vw;
+  }
+}
+
+@media print {
+  details.tooltip,
+  a.use {
+    display: none;
   }
 }
