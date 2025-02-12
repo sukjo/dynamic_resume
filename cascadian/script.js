@@ -26,13 +26,13 @@ $(document).ready(function () {
   $.getJSON("https://opensheet.elk.sh/" + sections[1].tabURL)
     .done(function (data_1) {
       let rowCount = 0;
-      const containerDiv = $("<div>", {
+      const sectionDiv = $("<div>", {
         id: "section-1",
-        class: "main-row",
+        class: "main__row",
       });
 
-      $("#main").append(containerDiv);
-      containerDiv.append(`<h2>${sections[1].name}</h2>`);
+      $("#main").append(sectionDiv);
+      sectionDiv.append(`<h2>${sections[1].name}</h2>`);
 
       data_1.forEach(function (row) {
         if (row.Visibility == "FALSE") {
@@ -40,17 +40,17 @@ $(document).ready(function () {
         } else {
           rowCount++;
           $(
-            `<div class='item'>
-              <div class='meta'>
+            `<div class='section__item'>
+              <div class='item__meta'>
                 <h3>${row.Organization}</h3>
                 <p class='position'>${row.Position}</p>
                 <p class='time'>${row.Time}</p>
               </div>
-              <div class='description'>
+              <div class='item__description'>
                 <p>${row.Description}</p>
               </div>
             </div>`
-          ).appendTo(containerDiv);
+          ).appendTo(sectionDiv);
         }
       });
 
@@ -62,13 +62,13 @@ $(document).ready(function () {
     })
     .done(function (data_2) {
       let rowCount = 0;
-      const containerDiv = $("<div>", {
+      const sectionDiv = $("<div>", {
         id: "section-2",
-        class: "main-row",
+        class: "main__row",
       });
 
-      $("#main").append(containerDiv);
-      containerDiv.append(`<h2>${sections[2].name}</h2>`);
+      $("#main").append(sectionDiv);
+      sectionDiv.append(`<h2>${sections[2].name}</h2>`);
 
       data_2.forEach(function (row) {
         if (row.Visibility == "FALSE") {
@@ -76,16 +76,16 @@ $(document).ready(function () {
         } else {
           rowCount++;
           $(
-            `<div class='item'>
-              <div class='meta'>
+            `<div class='section__item'>
+              <div class='item__meta'>
                 <h3>${row.Institution}</h3>
                 <p class='degree'>${row.Degree}</p>
               </div>
-              <div class='description'>
+              <div class='item__description'>
                 <p>${row.Description}</p>
               </div>
             </div>`
-          ).appendTo(containerDiv);
+          ).appendTo(sectionDiv);
         }
       });
 
@@ -98,13 +98,13 @@ $(document).ready(function () {
     .done(function (data_3) {
       let rowCount = 0;
 
-      const containerDiv = $("<div>", {
+      const sectionDiv = $("<div>", {
         id: "section-3",
-        class: "main-row",
+        class: "main__row",
       });
 
-      $("#main").append(containerDiv);
-      containerDiv.append(`<h2>${sections[3].name}</h2>`);
+      $("#main").append(sectionDiv);
+      sectionDiv.append(`<h2>${sections[3].name}</h2>`);
 
       data_3.forEach(function (row) {
         if (row.Visibility == "FALSE") {
@@ -112,16 +112,16 @@ $(document).ready(function () {
         } else {
           rowCount++;
           $(
-            `<div class='item'>
-              <div class='meta'>
+            `<div class='section__item'>
+              <div class='item__meta'>
                 <h3><a href='${row.Link}' target='_blank' rel='noopener noreferrer'>${row.Project}</a></h3>
                 <p class='time'>${row.Time}</p>
               </div>
-              <div class='description'>
+              <div class='item__description'>
                 <p>${row.Description}</p>
               </div>
             </div>`
-          ).appendTo(containerDiv);
+          ).appendTo(sectionDiv);
         }
       });
 
@@ -134,13 +134,13 @@ $(document).ready(function () {
     .done(function (data_4) {
       let rowCount = 0;
 
-      const containerDiv = $("<div>", {
+      const sectionDiv = $("<div>", {
         id: "section-4",
-        class: "main-row",
+        class: "main__row",
       });
 
-      $("#main").append(containerDiv);
-      containerDiv.append(`<h2>${sections[4].name}</h2>`);
+      $("#main").append(sectionDiv);
+      sectionDiv.append(`<h2>${sections[4].name}</h2>`);
 
       data_4.forEach(function (row) {
         if (row.Visibility == "FALSE") {
@@ -148,16 +148,16 @@ $(document).ready(function () {
         } else {
           rowCount++;
           $(
-            `<div class='item'>
-              <div class='meta'>
+            `<div class='section__item'>
+              <div class='item__meta'>
                 <h3>${row.Award}</h3>
                 <p class='time'>${row.Time}</p>
               </div>
-              <div class='description'>
+              <div class='item__description'>
                 <p>${row.Description}</p>
               </div>
             </div>`
-          ).appendTo(containerDiv);
+          ).appendTo(sectionDiv);
         }
       });
 
@@ -170,30 +170,31 @@ $(document).ready(function () {
     .done(function (data_5) {
       let rowCount = 0;
 
-      const containerDiv = $("<div>", {
+      const sectionDiv = $("<div>", {
         id: "section-5",
-        class: "main-row",
+        class: "main__row",
       });
 
-      const capFill = $("<div>", {
-        id: "cap-fill",
+      // everything below this line looks a little different from the other sections because the 'skills' section has special formatting
+      const skillsCols = $("<div>", {
+        id: "skills__columns",
       });
 
-      $("#main").append(containerDiv);
-      containerDiv.append(`<h2>${sections[5].name}</h2>`);
-      containerDiv.append(capFill);
+      $("#main").append(sectionDiv);
+      sectionDiv.append(`<h2>${sections[5].name}</h2>`);
+      sectionDiv.append(skillsCols);
 
       data_5.forEach(function (row) {
         if (row.Visibility == "FALSE") {
           return;
         } else {
-          $(`<p>${row.Skill}</p>`).appendTo(capFill);
+          $(`<p>${row.Skill}</p>`).appendTo(skillsCols);
         }
       });
 
       $(":root").css("--s5-row-count", rowCount);
     });
   /* -------------------------------------------------------------------------- */
-  /*                        fill in any new sections here                       */
+  /*                          add any new sections here                         */
   /* -------------------------------------------------------------------------- */
 });

@@ -1,5 +1,15 @@
 :root {
   --sky-blue: #6484e1;
+  --sky-blue-half: rgba(100, 132, 225, 0.5);
+  --platinum: #eaeaea;
+  --platinum-half: rgba(234, 234, 234, 0.5);
+  --platinum-quarter: rgba(234, 234, 234, 0.2);
+  --onyx: #32353e;
+  --gold: #d1ac00;
+}
+
+html {
+  box-sizing: border-box;
 }
 
 /* --------------------------------- tooltip -------------------------------- */
@@ -56,10 +66,6 @@ ul.tt-list > li:first-of-type {
 
 .tooltip > summary:hover {
   cursor: pointer;
-}
-
-a:visited {
-  color: inherit;
 }
 
 /* ------------------------------- use button ------------------------------- */

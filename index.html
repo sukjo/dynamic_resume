@@ -13,558 +13,604 @@
     <link rel="stylesheet" href="stylesheet.css" type="text/css" />
   </head>
   <body>
-    <div id="universe">
-      <header>
-        <h1>
-          Dynamic Resumes<br /><span id="for-the">for the<br /></span>
-          Dynamic Being
-        </h1>
-        <p id="date-time">February 13, 2025 at X:XX pm EST</p>
-      </header>
-      <p>
-        Welcome to the Dynamic Resumes for the Dynamic Being workshop page
-        &#9786;
-      </p>
-      <p>
-        A dynamic resume allows you to swap out the contents of your resume with
-        the click of a checkbox, while retaining the overall formatting.
-      </p>
-      <h2>Background</h2>
-      <p>
-        I first designed this resume for my own purposes while I was looking for
-        work in early 2024. At that time, I was open to many different types of
-        job titles and sectors, as I was trying to pivot my professional life
-        away from serving monopoly capital. I couldn't rely on time-pressed,
-        ambivalent employers to decipher my eligibility themselves, so I made a
-        bespoke resume for each job that included only the most relevant work
-        experiences, retold in the jargon of the target industry. For example,
-        if a role required project management skills, I would make mention of my
-        past project management internship and leave out, say, my former
-        part-time designer roles to make room on the page.
-      </p>
-      <p>
-        With the abysmal state of the job market, I soon grew tired of manually
-        cutting and pasting new resumes for each listing that came my way. It
-        was tiring to put so much effort into a job application that would not
-        even guarantee me the courtesy of a rejection email. I wanted a method
-        of applying for jobs that was as nimble and callous as the capitalist
-        job market itself. I imagined a resume that could shapeshift upon a
-        button's click, while retaining as much veracity as possible. My
-        reveries turned to reality when I realized such a thing was possible
-        using just basic front-end programming.
-      </p>
-      <p>
-        The resulting template served me so well I shared it with some friends,
-        who shared it with a few more friends. I'm sharing the source code and
-        instructions for this project here today and for posterity as a
-        testament to its utility, but far more importantly, as a show of
-        solidarity to all those who seek work under a soul-corroding economic
-        system where neither wages, healthcare, nor housing are guaranteed to
-        any individual.
-      </p>
-      <p>
-        My purpose here is not about resistance, and it's not even about
-        manipulation, either, because there is no deception in making oneself
-        legible to a labor market that demanded we conform to its vernacular in
-        the first place. I'm just trying to minimize the amount of menial work
-        we have to do in order to secure a bag so that less of our time,
-        attention, bodies, and spirits are consumed by the task of selling our
-        labor for a living.
-      </p>
-      <p>With that, let's get into it.</p>
-
-      <h2>Tutorial</h2>
-      <p>
-        This tutorial teaches you how to set up your resume using a spreadsheet
-        so you can create different versions of your work history with the click
-        of a checkbox. The checked data is automatically formatted into a
-        single-page, print-friendly layout using HTML, CSS, JavaScript, and
-        jQuery. Since the resulting file is a webpage, you can also use it to
-        host your resume online.
-      </p>
-      <h3>Setting up the API</h3>
-      <ol>
-        <li>
-          Make a copy of this
+    <header>
+      <h1>
+        Dynamic Resumes<br /><span id="for-the">for the<br /></span>
+        Dynamic Being
+      </h1>
+      <p id="date-time">Thursday, February 13, 2025 at 6 pm EST</p>
+      <img class="promo-gif" src="/screengrabs/papers-alone.gif" />
+    </header>
+    <div id="main-bg">
+      <main>
+        <p>
+          Welcome to the Dynamic Resumes for the Dynamic Being workshop page
+          &#9786;
+        </p>
+        <p>
+          A dynamic resume allows you to swap out the contents of your resume
+          with the click of a checkbox, while retaining the overall formatting.
+        </p>
+        <h2>Project Preview</h2>
+        <p>This is a preview of what we'll be making today:</p>
+        <img class="example-gif" src="/screengrabs/screenrec.gif" />
+        <p>
+          Basically, it's a "smart" resume. All the main contents of your resume
+          are stored in a cloud-based spreadsheet, which itself connects to a
+          webpage. All you have to do to add or remove past work experiences is
+          check or uncheck a box in the spreadsheet. The results are
+          automatiically formatted into a single-page, print-friendly layout
+          using HTML, CSS, JavaScript, and jQuery. Since the resulting file is a
+          webpage, you can also use it to host your resume online.
+        </p>
+        <p>Here's what we'll be using to make the dynamic resume:</p>
+        <ul>
+          <li>Google Spreadsheet with your resume data</li>
+          <li>
+            The dynamic resume template (we'll be using ours in Glitch, an
+            online
+            <a
+              target="_blank"
+              rel="noopener noreferrer external"
+              href="https://www.geeksforgeeks.org/what-is-ide/"
+              >IDE</a
+            >)
+          </li>
+          <li>
+            Opensheet API by
+            <a
+              target="_blank"
+              rel="noopener noreferrer external"
+              href="https://github.com/benborgers"
+              >Ben Borgers</a
+            >
+          </li>
+        </ul>
+        <aside>
+          As a disclaimer before we move forward, this workshop will
+          <em>not</em> be an exhaustive introduction to computer programming.
+          Nor will it be a workshop on how to write the best resume. This
+          tutorial is strictly for learning how to implement the programmatic
+          resume format for yourself—simply because that's all our time allows!
+        </aside>
+        <h2>Background</h2>
+        <p>
+          I first designed this resume for my own purposes while I was looking
+          for work in early 2024. At that time, I was open to many different
+          types of job titles and sectors, as I was trying to pivot my
+          professional life away from serving monopoly capital. I couldn't rely
+          on time-pressed, ambivalent employers to decipher my eligibility
+          themselves, so I made a bespoke resume for each job that included only
+          the most relevant work experiences, retold in the jargon of the target
+          industry. For example, if a role required project management skills, I
+          would make mention of my past project management internship and leave
+          out, say, my former part-time designer roles to make room on the page.
+        </p>
+        <p>
+          With the abysmal state of the job market, I soon grew tired of
+          manually cutting and pasting new resumes for each listing that came my
+          way. It was tiring to put so much effort into a job application that
+          would not even guarantee me the courtesy of a rejection email. I
+          wanted a method of applying for jobs that was as nimble and callous as
+          the capitalist job market itself. I imagined a resume that could
+          shapeshift upon a button's click, while retaining as much veracity as
+          possible. My reveries turned to reality when I realized such a thing
+          was possible using just basic front-end programming.
+        </p>
+        <p>
+          The resulting template served me so well I shared it with some
+          friends, who shared it with a few more friends. I'm sharing the source
+          code and instructions for this project here today and for posterity as
+          a testament to its utility, but far more importantly, as a show of
+          solidarity to all those who seek work under a soul-corroding economic
+          system where neither wages, healthcare, nor housing are guaranteed to
+          any individual.
+        </p>
+        <p>
+          My purpose here is not about resistance, and it's not even about
+          manipulation, either, because there is no deception in making oneself
+          legible to a labor market that demanded we conform to its vernacular
+          in the first place. I'm just trying to minimize the amount of menial
+          work we have to do in order to secure a bag so that less of our time,
+          attention, bodies, and spirits are consumed by the task of selling our
+          labor for a living.
+        </p>
+        <p>With that, let's get into it.</p>
+        <h2>Tutorial</h2>
+        <h3>Step #1: Setting up the API</h3>
+        <ol>
+          <li>
+            Make a copy of this
+            <a
+              target="_blank"
+              rel="noopener noreferrer external"
+              href="https://docs.google.com/spreadsheets/d/194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/edit?usp=sharing"
+              >Google Spreadsheet</a
+            >. Change the share settings so that &quot;anyone with the
+            link&quot; can view the document.
+          </li>
+          <li>
+            Browse the templates below to decide which one you want to start
+            with. When you decide, click the “use this template” button on the
+            page. This will open up a Glitch project with the template code
+            ready for use.
+            <ol>
+              <ul class="main-list">
+                <li>
+                  <a target="_blank" href="/track_track/">track_track</a>
+                </li>
+                <li>
+                  <a target="_blank" href="/cascadian/">cascadian</a>
+                </li>
+                <li>
+                  <a target="_blank" href="/button_ups/">button_ups</a>
+                </li>
+              </ul>
+            </ol>
+          </li>
+          <li>
+            <p>
+              On the Glitch project, click the “Remix your own” button below the
+              project preview. This will duplicate the template and allow you to
+              edit it.
+            </p>
+            <aside>
+              If you don’t have a Glitch account set up, your project will
+              expire after 5 days. Create an account if you want to save your
+              progress.
+            </aside>
+          </li>
+          <li>
+            <p>
+              One you have the project opened, go to the
+              <code>script.js</code> file (in the lefthand pane) and find the
+              <code>tabURL</code> keys in the <code>sections</code> object.
+              You’ll want to replace these cryptic strings of characters with
+              the ID of your Google Spreadsheet. To find the ID of your
+              spreadsheet, go back to the spreadsheet and click the “share”
+              button.
+            </p>
+          </li>
+          <li>
+            Click “copy link” and paste the link somewhere you can edit it real
+            quick. Then copy only the characters between
+            &quot;https://docs.google.com/spreadsheets/d/&quot; and
+            &quot;/edit?usp=sharing&quot; in the URL. Replace all the
+            <code>tabURL</code>s in the Glitch file with this new string.
+          </li>
+          <img
+            class="sticky"
+            src="/screengrabs/Screenshot 2024-11-20 at 8.42.38 PM.png"
+            alt="post-it note showing the key part of the Google Spreadsheet URL highlighted"
+          />
+          <li>
+            <p>
+              Add &quot;/1&quot;, &quot;/2&quot;, etc. at the end of each
+              <code>tabURL</code> to point to a specific tab in the spreadsheet.
+              You’re going to want to start with “/2” if you’re using my
+              spreadsheet template, since the first tab contains instructions.
+              These indexes are 1-based and determined based on the order of
+              your tabs in the spreadsheet.
+            </p>
+            <aside>
+              If you change the order of your tabs in the spreadsheet, you will
+              have to update the trailing tab numbers in the
+              <code>sections</code> object as well.
+            </aside>
+          </li>
+          <li>
+            There you have it! &#9786; Your spreadsheet is now hooked up to your
+            Glitch file. From here, we can start updating the data in the
+            spreadsheet and updating the appearance of our resume.
+          </li>
+        </ol>
+        <h3>Step #2: Updating the data</h3>
+        <p>
+          As you’ll see in the first tab of the spreadsheet labeled
+          “instructions”, any update you make in the spreadsheet itself may or
+          may not require an update in the code. To reiterate these categories
+          again here:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>do change</th>
+              <th>do change & update</th>
+              <th>do not change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tips">
+              <td>
+                <em
+                  >you can update these freely and the changes will be reflected
+                  in the hosted webpage</em
+                >
+              </td>
+              <td>
+                <em
+                  >if you change these, manual updates will be required in
+                  script.js</em
+                >
+              </td>
+              <td>
+                <em
+                  >these settings are absolutely required for the API to
+                  work!</em
+                >
+              </td>
+            </tr>
+            <tr class="categories">
+              <td>
+                <ul class="table__list">
+                  <li>visibility column</li>
+                  <li>any other columns with your resume data</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="table__list">
+                  <li>tab/section order</li>
+                  <li>tab/section names</li>
+                  <li>number of tabs/sections</li>
+                  <li>column header names</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="table__list">
+                  <li>frozen rows</li>
+                  <li>document access permissions</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          If you’re satisfied with the pre-provided section headers (e.g.
+          “experience”, “education”, “projects”) and column headers (e.g.
+          “institution”, “degree”, “location”), you can start updating the green
+          cells in the spreadsheet with your own information. If you want to
+          customize these details, proceed through the following steps.
+        </p>
+        <h4>To change section name:</h4>
+        <p>
+          Updating the section name in the spreadsheet tab does not
+          automatically rename the corresponding section on your resume. You
+          also have to update the name of the section in the
+          <code>script.js</code> file.
+        </p>
+        <ol>
+          <li>
+            For consistency's sake, start by renaming the tab in the spreadsheet
+            to whatever you want (i.e. change “awards” to "publications").
+          </li>
+          <li>
+            Then, in the <code>script.js</code> file, go to the
+            <code>sections</code> object at the top and change the
+            <code>name</code> value to your new section name. This will update
+            the section header on your resume template.
+          </li>
+        </ol>
+        <h4>To change a column header:</h4>
+        <p>
+          Column headers are what you see in the spreadsheet as “Visibility”,
+          “Position”, “Organization”, and so forth. To make the dynamic resume
+          work, you have to change these both in the spreadsheet and the
+          <code>script.js</code>.
+        </p>
+        <ol>
+          <li>
+            Update the name of the column header directly in the spreadsheet
+            first. Keep in mind these are case-sensitive. I recommend
+            capitalizing the first letter to keep things consistent.
+          </li>
+          <li>
+            Go to the section that you updated in your <code>script.js</code>.
+          </li>
+          <li>
+            Find the line that has the name of your old column header (I like to
+            use <code>CMD + F</code> or <code>CTRL + F</code> for this). It
+            should be something like <code>${row.Organization}</code>. Replace
+            the old header with your new one, as it is written in the
+            spreadsheet (i.e. <code>${row.Company}</code>).
+          </li>
+        </ol>
+        <h4>To add a new section:</h4>
+        <p>
+          Before you go on, you should know that the following steps require
+          background knowledge of HTML, JavaScript, and optionally CSS. If you
+          aren’t familiar with these, I’d recommend you read an
           <a
             target="_blank"
             rel="noopener noreferrer external"
-            href="https://docs.google.com/spreadsheets/d/194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/edit?usp=sharing"
-            >Google Spreadsheet</a
-          >. Change the sharing settings so that &quot;anyone with the
-          link&quot; can view the document, then copy the share URL.
-        </li>
-        <li>
-          Browse the templates below to decide which one you want to start with.
-          When you decide, click the “use this template” button on the page.
-          This will open up a Glitch project with the template code ready for
-          use.
-          <ol>
-            <ul class="main-list">
-              <li>
-                <a target="_blank" href="/track_track/">track_track</a>
-              </li>
-              <li>
-                <a target="_blank" href="/cascadian/">cascadian</a>
-              </li>
-              <li>
-                <a target="_blank" href="/button_ups/">button_ups</a>
-              </li>
-            </ul>
-          </ol>
-        </li>
-        <li>
-          <p>
-            On the Glitch project, click the “remix” button in the top righthand
-            corner. This will duplicate the template and allow you to edit it.
-          </p>
-          <aside>
-            If you don’t have a Glitch account set up, your project will expire
-            after 5 days. Create an account if you want to save your progress.
-          </aside>
-        </li>
-        <li>
-          <p>
-            Go to the <code>script.js</code> file and find the
-            <code>tabURL</code> keys in the <code>sections</code> object. You’ll
-            want to replace these strings of characters with the ID of your
-            Google Spreadsheet copy. To do this, go back to the spreadsheet and
-            click the “share” button.
-          </p>
-        </li>
-        <li>
-          Click “copy link” and paste the link somewhere you can edit it real
-          quick. Then copy only the characters between &quot;
-          https://docs.google.com/spreadsheets/d/&quot; and
-          &quot;/edit?usp=sharing&quot; in the URL. Replace all the
-          <code>tabURL</code>s in the Glitch file with this new string.
-          <ol>
-            <img
-              class="sticky"
-              src="/screengrabs/Screenshot 2024-11-20 at 8.42.38 PM.png"
-              alt="post-it note showing the key part of the Google Spreadsheet URL highlighted"
-            />
-          </ol>
-        </li>
-        <li>
-          <p>
-            Add &quot;/1&quot;, &quot;/2&quot;, etc. at the end of each
-            <code>tabURL</code> to point to a specific tab in the spreadsheet.
-            You’re going to want to start with “/2” if you’re using my
-            spreadsheet template, since the first tab contains instructions.
-            These indexes are 1-based and determined based on the order of your
-            tabs in the spreadsheet.
-          </p>
-          <aside>
-            If you change the order of your tabs in the spreadsheet, you will
-            have to update the trailing tab numbers in the
-            <code>sections</code> object as well.
-          </aside>
-        </li>
-      </ol>
-      <h3>Updating the data</h3>
-      <p>
-        As you’ll see in the first tab of the spreadsheet labeled
-        “instructions”, any update you make in the spreadsheet itself may or may
-        not require an update in the code. To reiterate these categories again
-        here:
-      </p>
-      <table>
-        <thead>
-          <tr>
-            <th><strong>DO CHANGE</strong></th>
-            <th><strong>DO CHANGE & UPDATE</strong></th>
-            <th><strong>DO NOT CHANGE</strong></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <em
-                >you can update these freely and the changes will be reflected
-                in the hosted webpage</em
-              >
-            </td>
-            <td>
-              <em
-                >if you change these, manual updates will be required in
-                script.js</em
-              >
-            </td>
-            <td>
-              <em
-                >these settings are absolutely required for the API to work!</em
-              >
-            </td>
-          </tr>
-          <tr>
-            <td>visibility column</td>
-            <td>tab/section order</td>
-            <td>frozen rows</td>
-          </tr>
-          <tr>
-            <td>any other columns with your resume data</td>
-            <td>tab/section names</td>
-            <td>document access permissions</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>number of tabs/sections</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>column header names</td>
-          </tr>
-        </tbody>
-      </table>
-      <p>
-        If you’re satisfied with the pre-provided section headers (e.g.
-        “experience”, “education”, “projects”) and column headers (e.g.
-        “institution”, “degree”, “location”), you can start updating the green
-        cells in the spreadsheet with your own information. If you want to
-        customize these details, proceed through the following steps.
-      </p>
-      <h4>To change section name:</h4>
-
-      <ol>
-        <li>
-          Update a section name by renaming the tab in the spreadsheet (i.e.
-          from “awards” to “honors”).
-        </li>
-        <li>
-          Then, in the <code>script.js</code> file, go to the
-          <code>sections</code> object at the top and change the
-          <code>name</code> value to your new section name. This will update the
-          section header on your resume template.
-        </li>
-      </ol>
-      <h4>To change a column header:</h4>
-
-      <p>
-        Column headers are what you see in the spreadsheet as “Visibility”,
-        “Position”, “Organization”, and so forth. To make the dynamic resume
-        work, you have to change these both in the spreadsheet and the
-        <code>script.js</code>.
-      </p>
-      <ol>
-        <li>
-          Update the name of the column header directly in the spreadsheet
-          first. Keep in mind these are case-sensitive. I recommend capitalizing
-          the first letter to keep things consistent.
-        </li>
-        <li>
-          Go to the section that you updated in your <code>script.js</code>.
-        </li>
-        <li>
-          Find the line that has the name of your old column header. It should
-          be something like <code>${row.Organization}</code>. Replace the old
-          header with your new one, as it is written in the spreadsheet (i.e.
-          <code>${row.Company}</code>).
-        </li>
-      </ol>
-      <h4>To add a new section</h4>
-
-      <p>
-        Before you go on, you should know that the following steps require
-        background knowledge of HTML, JavaScript, and optionally CSS. If you
-        aren’t familiar with these on a conceptual basis, I’d recommend you read
-        an
-        <a
-          target="_blank"
-          rel="noopener noreferrer external"
-          href="https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/"
-          >explainer</a
-        >
-        first. It’d also be helpful to familiarize yourself with
-        <a
-          target="_blank"
-          rel="noopener noreferrer external"
-          href="https://www.educative.io/answers/string-literals-vs-template-literals"
-          >string literals and/or template literals</a
-        >. Even then, you’ll probably have some questions on how to implement a
-        desired output. If you need help, you can ask a question in the chat or
-        <a href="mailto:info@joannesuk.com">email me</a>.
-      </p>
-      <ol>
-        <li>
-          Add a new section by inserting a new tab or “sheet” in the
-          spreadsheet. Name it whatever you want the new section of your resume
-          to be.
-        </li>
-        <li>
-          If you want to make each row’s visibility modifiable, as they are in
-          the original tabs, make the first (leftmost) column the “Visibility”
-          column (case-sensitive) and fill the rows with checkboxes.
-        </li>
-        <li>Fill in the rest of the column headers as you desire.</li>
-        <li>
-          After setting up the new section, be sure to freeze the first row in
-          the sheet. This tells the API what to call each column of data.
-        </li>
-        <li>
-          <p>
-            In the <code>script.js</code> file, go to the very bottom where it
-            says
-          </p>
-          <!-- prettier-ignore -->
-          <div class="code-block">
-            <pre><code class="lang-jsx">/* -------------------------------------------------------------------------- */
+            href="https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/"
+            >explainer</a
+          >
+          first. It’d also be helpful to familiarize yourself with
+          <a
+            target="_blank"
+            rel="noopener noreferrer external"
+            href="https://www.educative.io/answers/string-literals-vs-template-literals"
+            >string literals and/or template literals</a
+          >. Even then, you’ll probably have some questions on how to implement
+          a desired output. If you need help, you can ask a question in the chat
+          or <a href="mailto:info@joannesuk.com">email me</a>.
+        </p>
+        <ol>
+          <li>
+            Add a new section by inserting a new tab or “sheet” in the
+            spreadsheet. Name it whatever you want the new section of your
+            resume to be.
+          </li>
+          <li>
+            If you want to make each row’s visibility modifiable, as they are in
+            the original tabs, make the first (leftmost) column the “Visibility”
+            column (case-sensitive) and fill the rows with checkboxes.
+          </li>
+          <li>Fill in the rest of the column headers as you desire.</li>
+          <li>
+            After setting up the new section, be sure to freeze the first row in
+            the sheet. This tells the API what to call each column of data.
+          </li>
+          <li>
+            <p>
+              In the <code>script.js</code> file, go to the very bottom where it
+              says
+            </p>
+            <!-- prettier-ignore -->
+            <div class="code-block">
+                <pre><code class="lang-jsx">/* -------------------------------------------------------------------------- */
 /*                       <span class="hljs-built_in"> fill </span>in any<span class="hljs-built_in"> new </span>sections here                       */
 /* -------------------------------------------------------------------------- */
-            </code></pre>
-          </div>
-        </li>
-        <li>
-          <p>
-            Underneath this new section marker, paste the code snippet that
-            coordinates with your chosen template:
-          </p>
-          <!-- prettier-ignore -->
-          <ol>
-<li><p>track_track</p>
-<div class="code-block">
-  <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-         <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
-       })
-   .done(
-     <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
-       <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
-         <span class="hljs-attr">id</span>: <span class="hljs-string">`<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>`</span>,
-         <span class="hljs-attr">class</span>: <span class="hljs-string">"sub-container"</span>,
-       });
-  
-       rightcol.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[<span class="hljs-number">4</span>].name}</span>&lt;/h2&gt;`</span>);
-       rightcol.append(containerDiv);
-  
-       data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
-         <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
-           <span class="hljs-keyword">return</span>;
-         } <span class="hljs-keyword">else</span> {
-           $(
-             <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
-           ).appendTo(containerDiv);
-         }
-       });
-     }
-   );
-  </code></pre>
-</div>
-</li>
-<li><p>cascadian</p>
-  <!-- prettier-ignore -->
-<div class="code-block">
-  <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-     <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
-   })
-   .done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
-     <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
-     <span class="hljs-keyword">let</span> rowCount = <span class="hljs-number">0</span>;
-  
-     <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
-       <span class="hljs-attr">id</span>: <span class="hljs-string">"section-TAB_NUMBER"</span>,
-       <span class="hljs-attr">class</span>: <span class="hljs-string">"main-row"</span>,
-     });
-  
-     $(<span class="hljs-string">"#main"</span>).append(containerDiv);
-     containerDiv.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>&lt;/h2&gt;`</span>);
-  
-     data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
-       <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
-         <span class="hljs-keyword">return</span>;
-       } <span class="hljs-keyword">else</span> {
-         rowCount++;
-         $(
-           <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
-         ).appendTo(containerDiv);
-       }
-     });
-  
-     $(<span class="hljs-string">":root"</span>).css(<span class="hljs-string">"--sTAB_NUMBER-row-count"</span>, rowCount);
-   })
-  </code></pre>
-</div>
-</li>
-<li><p>button_ups</p>
-<div class="code-block">
-  <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-     <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
-   })
-   .done(
-     <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
-     <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
-       <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
-         <span class="hljs-attr">id</span>: <span class="hljs-string">`<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>`</span>,
-       });
-  
-       $(<span class="hljs-string">"#main"</span>).append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>&lt;/h2&gt;`</span>);
-       $(<span class="hljs-string">"#main"</span>).append(containerDiv);
-  
-       data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
-         <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
-           <span class="hljs-keyword">return</span>;
-         } <span class="hljs-keyword">else</span> {
-           $(
-           <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
-           ).appendTo(containerDiv);
-         }
-       });
-     }
-   )
-  </code></pre>
-</div>
-</li>
-</ol>
-        </li>
-        <li>
-          <p>
-            Replace all instances of <code>TAB_NUMBER</code> with the number of
-            your tab in the spreadsheet. Keep the surrounding code intact.
-          </p>
-          <aside>
-            Remember, these tabs are 1-based and chronological. The
-            “instructions” tab would be 1, “experience” would be 2, and so on.
-          </aside>
-        </li>
-        <li>
-          <p>
-            Replace “// FILL IN YOUR DESIRED HTML OUTPUT HERE” with the DOM
-            elements, classes, and column headers that you want for your new
-            section. If you want the section to match the style of previous
-            sections, use the existing section contents in the
-            <code>script.js</code> as an example. For example, using the
-            cascadian template, I might add a new section including my statement
-            of intent as such:
-          </p>
+                </code></pre>
+              </div>
+          </li>
+          <li>
+            <p>
+              Underneath this new section marker, copy and paste the code
+              snippet that coordinates with your chosen template:
+            </p>
+            <!-- prettier-ignore -->
+            <ul>
+          <li><p>track_track</p>
           <div class="code-block">
             <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-   <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[<span class="hljs-number">6</span>].tabURL);
- })
- .done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_6</span>) </span>{
-   <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
-   <span class="hljs-keyword">let</span> rowCount = <span class="hljs-number">0</span>;
-
-   <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
-     <span class="hljs-attr">id</span>: <span class="hljs-string">"section-6"</span>,
-     <span class="hljs-attr">class</span>: <span class="hljs-string">"main-row"</span>,
-   });
-
-   $(<span class="hljs-string">"#main"</span>).append(containerDiv);
-   containerDiv.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[<span class="hljs-number">6</span>].name}</span>&lt;/h2&gt;`</span>);
-
-   data_6.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
-     <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
-       <span class="hljs-keyword">return</span>;
-     } <span class="hljs-keyword">else</span> {
-       rowCount++;
-       $(
-         <span class="hljs-string">`&lt;div class='item'&gt;
-             &lt;p class='time'&gt;<span class="hljs-subst">${row.Statement}</span>&lt;/p&gt;
-         &lt;/div&gt;`</span>
-       ).appendTo(containerDiv);
-     }
-   });
-
-   $(<span class="hljs-string">":root"</span>).css(<span class="hljs-string">"--s6-row-count"</span>, rowCount);
- })
-</code></pre>
+             <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
+           })
+             .done(
+               <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
+               <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
+           <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
+             <span class="hljs-attr">id</span>: <span class="hljs-string">`<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>`</span>,
+             <span class="hljs-attr">class</span>: <span class="hljs-string">"sub-container"</span>,
+           });
+           rightcol.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[<span class="hljs-number">4</span>].name}</span>&lt;/h2&gt;`</span>);
+           rightcol.append(containerDiv);
+           data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
+             <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
+               <span class="hljs-keyword">return</span>;
+             } <span class="hljs-keyword">else</span> {
+               $(
+                 <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
+               ).appendTo(containerDiv);
+             }
+           });
+               }
+             );
+            </code></pre>
           </div>
-        </li>
-      </ol>
-      <h3>Updating Styles</h3>
-      <p>
-        I won’t go into too much detail for the below style updates, but each of
-        these tweaks are fairly manageable for beginner coders and are supported
-        by existing documentation online.
-      </p>
-      <h4>Fonts</h4>
-
-      <p>
-        Fonts are easy to update. To insert a custom font, you can go to a
-        source like
-        <a
-          target="_blank"
-          rel="noopener noreferrer external"
-          href="https://fonts.google.com/"
-          >fonts.google.com</a
-        >
-        and select some font families you want to use. Once you have your cart
-        filled, follow the embed instructions to install them in your template.
-      </p>
-      <h4>Colors</h4>
-
-      <p>
-        In the <code>stylesheet.css</code>, look for lines that say
-        <code>color:</code>, <code>background-color:</code>, or any variation of
-        <code>border</code>. These lines are the only instances of color that
-        I’ve already defined in the templates. You can swap out the color names
-        (e.g. <code>black</code>, <code>dodgerblue</code>) with any other
-        <a
-          target="_blank"
-          rel="noopener noreferrer external"
-          href="https://www.w3schools.com/cssref/css_colors.php"
-          >supported CSS color</a
-        >
-        or a hex, RGB, HSL, or HWB value.
-      </p>
-      <aside>
-        If you are using the cascadian template, look for the variable under
-        <code>:root</code> that says <code>--accent-col:</code>. This is where
-        the accent color of the template is defined.
-      </aside>
-
-      <h2 id="general-caveats">General Caveats</h2>
-      <ul>
-        <li>
-          If you're printing your resume out on paper, I'd recommend doing it
-          from Firefox, Chrome, or an otherwise Chromium-based browser. Do NOT
-          use Safari. Safari does not allow direct margin adjustments within the
-          print settings so you'll find that the content runs off the edges when
-          you try to print.
-        </li>
-        <li>
-          If your print preview extends beyond one page, you need to 1) cut down
-          on the number of visible data rows and/or 2) update the CSS to fit
-          everything you want (i.e. by making the text smaller, reducing line
-          height or padding). I would recommend the former option to keep all
-          information concise, legible, and relevant, and to abide by the
-          general rule of thumb to keep resumes at a maximum length of one page.
-        </li>
-        <li>
-          In order to use this template, your spreadsheet has to be accessible
-          to anyone on the internet with the link. This means your backend data
-          will be visible to anyone. This does NOT mean that anyone will be able
-          to comment on or edit your data, nor does it mean that someone will be
-          able to “hack” your Google spreadsheet and change the data—actually,
-          it’s highly unlikely that someone will be able to find your
-          spreadsheet online at all without you sharing the link explicitly,
-          given that each sheet is identified by a random string of characters.
-          The main action item for you here is to keep any sensitive information
-          (i.e. passwords, birth dates, etc.) off your spreadsheet just in case
-          a bad actor stumbles upon it.
-        </li>
-      </ul>
-      <h2 id="closeout">Closeout</h2>
-      <p>
-        Congrats! You’ve made it to the end of the tutorial &#9786; Thanks for
-        your willingness to learn new things and invest time in a process that
-        will pay you forward for job apps to come.
-      </p>
+          </li>
+          <li><p>cascadian</p>
+            <!-- prettier-ignore -->
+          <div class="code-block">
+            <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+               <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
+             })
+             .done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
+               <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
+               <span class="hljs-keyword">let</span> rowCount = <span class="hljs-number">0</span>;
+      
+               <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
+           <span class="hljs-attr">id</span>: <span class="hljs-string">"section-TAB_NUMBER"</span>,
+           <span class="hljs-attr">class</span>: <span class="hljs-string">"main-row"</span>,
+               });
+      
+               $(<span class="hljs-string">"#main"</span>).append(containerDiv);
+               containerDiv.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>&lt;/h2&gt;`</span>);
+      
+               data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
+           <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
+             <span class="hljs-keyword">return</span>;
+           } <span class="hljs-keyword">else</span> {
+             rowCount++;
+             $(
+               <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
+             ).appendTo(containerDiv);
+           }
+               });
+      
+               $(<span class="hljs-string">":root"</span>).css(<span class="hljs-string">"--sTAB_NUMBER-row-count"</span>, rowCount);
+             })
+            </code></pre>
+          </div>
+          </li>
+          <li><p>button_ups</p>
+          <div class="code-block">
+            <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+               <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
+             })
+             .done(
+               <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
+               <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
+           <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
+             <span class="hljs-attr">id</span>: <span class="hljs-string">`<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>`</span>,
+           });
+           $(<span class="hljs-string">"#main"</span>).append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>&lt;/h2&gt;`</span>);
+           $(<span class="hljs-string">"#main"</span>).append(containerDiv);
+           data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
+             <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
+               <span class="hljs-keyword">return</span>;
+             } <span class="hljs-keyword">else</span> {
+               $(
+               <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
+               ).appendTo(containerDiv);
+             }
+           });
+               }
+             )
+            </code></pre>
+          </div>
+          </li>
+        </ul>
+          </li>
+          <li>
+            <p>
+              Replace all instances of <code>TAB_NUMBER</code> with the number
+              of your tab in the spreadsheet. Keep the surrounding code intact.
+            </p>
+            <aside>
+              Remember, these tabs are 1-based and chronological. The
+              “instructions” tab would be 1, “experience” would be 2, and so on.
+            </aside>
+          </li>
+          <li>
+            <p>
+              Replace “// FILL IN YOUR DESIRED HTML OUTPUT HERE” with the DOM
+              elements, classes, and column headers that you want for your new
+              section. If you want the section to match the style of previous
+              sections, use the existing section contents in the
+              <code>script.js</code> as an example. For example, using the
+              cascadian template, I might add a new section including my
+              statement of intent as such:
+            </p>
+            <div class="code-block">
+              <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+             <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[<span class="hljs-number">6</span>].tabURL);
+           })
+           .done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_6</span>) </span>{
+             <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
+             <span class="hljs-keyword">let</span> rowCount = <span class="hljs-number">0</span>;
+      
+             <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
+               <span class="hljs-attr">id</span>: <span class="hljs-string">"section-6"</span>,
+               <span class="hljs-attr">class</span>: <span class="hljs-string">"main-row"</span>,
+             });
+      
+             $(<span class="hljs-string">"#main"</span>).append(containerDiv);
+             containerDiv.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[<span class="hljs-number">6</span>].name}</span>&lt;/h2&gt;`</span>);
+      
+             data_6.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
+               <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
+           <span class="hljs-keyword">return</span>;
+               } <span class="hljs-keyword">else</span> {
+           rowCount++;
+           $(
+             <span class="hljs-string">`&lt;div class='item'&gt;
+                 &lt;p class='time'&gt;<span class="hljs-subst">${row.Statement}</span>&lt;/p&gt;
+             &lt;/div&gt;`</span>
+           ).appendTo(containerDiv);
+               }
+             });
+      
+             $(<span class="hljs-string">":root"</span>).css(<span class="hljs-string">"--s6-row-count"</span>, rowCount);
+           })
+          </code></pre>
+            </div>
+          </li>
+        </ol>
+        <h3>Step #3 (optional): Updating Styles</h3>
+        <p>
+          I won’t go into too much detail for the below style updates, but each
+          of these tweaks are fairly manageable for beginner coders and are
+          supported by existing documentation online.
+        </p>
+        <h4>Fonts</h4>
+        <p>
+          Fonts are easy to update. To insert a custom font, you can go to a
+          source like
+          <a
+            target="_blank"
+            rel="noopener noreferrer external"
+            href="https://fonts.google.com/"
+            >fonts.google.com</a
+          >
+          and select some font families you want to use. Once you have your cart
+          filled, follow the embed instructions to install them in your
+          template.
+        </p>
+        <h4>Colors</h4>
+        <p>
+          In the <code>stylesheet.css</code>, look for lines that say
+          <code>color:</code>, <code>background-color:</code>, or any variation
+          of <code>border</code>. These lines are the only instances of color
+          that I’ve already defined in the templates. You can swap out the color
+          names (e.g. <code>black</code>, <code>dodgerblue</code>) with any
+          other
+          <a
+            target="_blank"
+            rel="noopener noreferrer external"
+            href="https://www.w3schools.com/cssref/css_colors.php"
+            >supported CSS color</a
+          >
+          or a hex, RGB, HSL, or HWB value.
+        </p>
+        <aside>
+          If you are using the cascadian template, look for the variable under
+          <code>:root</code> that says <code>--accent-col:</code>. This is where
+          the accent color of the template is defined.
+        </aside>
+        <h2 id="general-caveats">General Caveats</h2>
+        <ul>
+          <li>
+            If you're printing your resume out on paper, I'd recommend doing it
+            from Firefox, Chrome, or an otherwise Chromium-based browser. Do NOT
+            use Safari. Safari does not allow direct margin adjustments within
+            the print settings so you'll find that the content runs off the
+            edges when you try to print.
+          </li>
+          <li>
+            If your print preview extends beyond one page, you need to 1) cut
+            down on the number of visible data rows and/or 2) update the CSS to
+            fit everything you want (i.e. by making the text smaller, reducing
+            line height or padding). I would recommend the former option to keep
+            all information concise, legible, and relevant, and to abide by the
+            general rule of thumb to keep resumes at a maximum length of one
+            page.
+          </li>
+          <li>
+            In order to use this template, your spreadsheet has to be accessible
+            to anyone on the internet with the link. This means your backend
+            data will be visible to anyone. This does NOT mean that anyone will
+            be able to comment on or edit your data, nor does it mean that
+            someone will be able to “hack” your Google spreadsheet and change
+            the data—actually, it’s highly unlikely that someone will be able to
+            find your spreadsheet online at all without you sharing the link
+            explicitly, given that each sheet is identified by a random string
+            of characters. The main action item for you here is to keep any
+            sensitive information (i.e. passwords, birth dates, etc.) off your
+            spreadsheet just in case a bad actor stumbles upon it.
+          </li>
+        </ul>
+        <h2 id="closeout">Closeout</h2>
+        <p>
+          Congrats! You’ve made it to the end of the tutorial &#9786; Thanks for
+          your willingness to learn new things and invest time in a process that
+          will pay you forward for job apps to come.
+        </p>
+        <footer>
+          <a
+            target="_blank"
+            rel="noopener noreferrer external"
+            href="https://github.com/sukjo/dynamic_resume"
+            >project repository</a
+          >
+          <a
+            target="_blank"
+            rel="noopener noreferrer author"
+            href="https://joannesuk.com/"
+            >author</a
+          >
+        </footer>
+      </main>
     </div>
-    <footer>
-      <a
-        target="_blank"
-        rel="noopener noreferrer external"
-        href="https://github.com/sukjo/dynamic_resume"
-        >project repository</a
-      >
-      <a
-        target="_blank"
-        rel="noopener noreferrer author"
-        href="https://joannesuk.com/"
-        >author</a
-      >
-    </footer>
   </body>
 </html>

@@ -22,33 +22,27 @@ let sections = {
 };
 
 $(document).ready(function () {
-  const leftcol = $("<div>", {
-    id: "left",
-    class: "column",
-  });
-  const rightcol = $("<div>", {
-    id: "right",
-    class: "column",
-  });
+  const leftcol = $("<div>", { id: "left" });
+  const rightcol = $("<div>", { id: "right" });
   $("#main").append(leftcol);
   $("#main").append(rightcol);
 
   /* -------------------------------- section 1 ------------------------------- */
   $.getJSON("https://opensheet.elk.sh/" + sections[1].tabURL)
     .done(function (data_1) {
-      const containerDiv = $("<div>", {
+      const sectionDiv = $("<div>", {
         id: `${sections[1].name}`,
-        class: "sub-container",
+        class: "section",
       });
 
       leftcol.append(`<h2>${sections[1].name}</h2>`);
-      leftcol.append(containerDiv);
+      leftcol.append(sectionDiv);
 
       data_1.forEach(function (row) {
         if (row.Visibility == "FALSE") {
           return;
         } else {
-          // update each of these according to your own column names (e.g. "row.Company"). these are case-sensitive
+          // update each of the below according to your own column names (e.g. "row.Company"). these are case-sensitive
           $(
             `<div class='item'><h3>
               ${row.Organization}
@@ -67,7 +61,7 @@ $(document).ready(function () {
               <p class='description'>
               ${row.Description}
               </p></div>`
-          ).appendTo(containerDiv);
+          ).appendTo(sectionDiv);
         }
       });
     })
@@ -77,13 +71,13 @@ $(document).ready(function () {
     .done(
       /* -------------------------------- section 2 ------------------------------- */
       function (data_2) {
-        const containerDiv = $("<div>", {
+        const sectionDiv = $("<div>", {
           id: `${sections[2].name}`,
-          class: "sub-container",
+          class: "section",
         });
 
         rightcol.append(`<h2>${sections[2].name}</h2>`);
-        rightcol.append(containerDiv);
+        rightcol.append(sectionDiv);
 
         data_2.forEach(function (row) {
           if (row.Visibility == "FALSE") {
@@ -107,7 +101,7 @@ $(document).ready(function () {
                 <p class='description'>
                 ${row.Description}
                 </p></div>`
-            ).appendTo(containerDiv);
+            ).appendTo(sectionDiv);
           }
         });
       }
@@ -118,13 +112,13 @@ $(document).ready(function () {
     .done(
       /* -------------------------------- section 3 ------------------------------- */
       function (data_3) {
-        const containerDiv = $("<div>", {
+        const sectionDiv = $("<div>", {
           id: `${sections[3].name}`,
-          class: "sub-container",
+          class: "section",
         });
 
         rightcol.append(`<h2>${sections[3].name}</h2>`);
-        rightcol.append(containerDiv);
+        rightcol.append(sectionDiv);
 
         data_3.forEach(function (row) {
           if (row.Visibility == "FALSE") {
@@ -140,7 +134,7 @@ $(document).ready(function () {
                 <p class='description'>
                 ${row.Description}
                 </p></div>`
-            ).appendTo(containerDiv);
+            ).appendTo(sectionDiv);
           }
         });
       }
@@ -151,13 +145,13 @@ $(document).ready(function () {
     .done(
       /* -------------------------------- section 4 ------------------------------- */
       function (data_4) {
-        const containerDiv = $("<div>", {
+        const sectionDiv = $("<div>", {
           id: `${sections[4].name}`,
-          class: "sub-container",
+          class: "section",
         });
 
         rightcol.append(`<h2>${sections[4].name}</h2>`);
-        rightcol.append(containerDiv);
+        rightcol.append(sectionDiv);
 
         data_4.forEach(function (row) {
           if (row.Visibility == "FALSE") {
@@ -173,7 +167,7 @@ $(document).ready(function () {
                 <p class='description'>
                 ${row.Description}
                 </p></div>`
-            ).appendTo(containerDiv);
+            ).appendTo(sectionDiv);
           }
         });
       }
@@ -184,24 +178,25 @@ $(document).ready(function () {
     .done(
       /* -------------------------------- section 5 ------------------------------- */
       function (data_5) {
-        const containerDiv = $("<div>", {
+        const sectionDiv = $("<div>", {
           id: `${sections[5].name}`,
-          class: "sub-container",
+          class: "section",
         });
 
         rightcol.append(`<h2>${sections[5].name}</h2>`);
-        rightcol.append(containerDiv);
+        rightcol.append(sectionDiv);
 
         data_5.forEach(function (row) {
           if (row.Visibility == "FALSE") {
             return;
           } else {
+            // everything below this line looks a little different from the other sections because the 'skills' section has special formatting
             $(
               `<div class="${sections[5].name}-item"><p>${row.Skill}</p></div`
-            ).appendTo(containerDiv);
+            ).appendTo(sectionDiv);
           }
 
-          containerDiv.css("margin", "1rem 0");
+          sectionDiv.css("margin", "1rem 0");
           $(`.${sections[5].name}-item`).css({
             margin: "0.3rem 0.8rem",
             display: "inline-block",
@@ -213,6 +208,6 @@ $(document).ready(function () {
       }
     );
   /* -------------------------------------------------------------------------- */
-  /*                        fill in any new sections here                       */
+  /*                          add any new sections here                         */
   /* -------------------------------------------------------------------------- */
 });

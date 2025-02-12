@@ -21,21 +21,21 @@ header {
   text-align: center;
 }
 
-#header-details {
+#subheader {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
 }
 
-#header-details > :not(:last-child)::after {
+#subheader > :not(:last-child)::after {
   content: "\2734";
   padding-left: 1rem;
 }
 
 #main {
   width: 50vw;
-  margin: 0rem 2rem;
+  margin: 0rem 2rem 2rem 2rem;
   display: flex;
   flex-direction: column;
 }
@@ -48,7 +48,7 @@ header {
   padding-bottom: 0.25rem;
 }
 
-.item-header {
+.item__header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -97,19 +97,19 @@ a:visited {
   color: inherit;
 }
 
-.description {
+.item__description {
   font-size: 0.8rem;
   margin-top: 0.3rem;
   line-height: 1.25rem;
 }
 
-#skills-list {
+#skills__columns {
   font-size: 0.8rem;
   line-height: 1.2rem;
   padding-top: 1rem;
 }
 
-ul#skills-list {
+ul#skills__columns {
   list-style-position: outside;
   list-style-type: "• ";
   padding-left: 1ch;
@@ -121,36 +121,25 @@ ul#skills-list {
 /* -------------------------------------------------------------------------- */
 
 @media only screen and (max-width: 768px) {
-  #data {
-    flex-direction: column;
+  header,
+  #main {
+    width: 90vw;
   }
 
-  .column {
-    width: 70vw;
-  }
-
-  #left {
-    margin-right: 0rem;
-  }
-
-  #right {
-    margin-left: 0rem;
-  }
-
-  #header-details {
+  #subheader {
     flex-direction: column;
     gap: 0;
   }
 
-  #header-details > :not(:last-child)::after {
+  #subheader > :not(:last-child)::after {
     display: none;
   }
 
-  .item-header {
+  .item__header {
     flex-direction: column;
   }
 
-  ul#skills-list {
+  ul#skills__columns {
     columns: 3;
   }
 }
@@ -193,7 +182,7 @@ ul#skills-list {
 
   #main {
     width: 90vw;
-    margin: 0rem 2rem;
+    margin: 0rem 2rem 2rem 2rem;
     display: flex;
     flex-direction: column;
   }

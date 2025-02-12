@@ -25,12 +25,12 @@ $(document).ready(function () {
   /* -------------------------------- section 1 ------------------------------- */
   $.getJSON("https://opensheet.elk.sh/" + sections[1].tabURL)
     .done(function (data_1) {
-      const containerDiv = $("<div>", {
+      const sectionDiv = $("<div>", {
         id: `${sections[1].name}`,
       });
 
       $("#main").append(`<h2>${sections[1].name}</h2>`);
-      $("#main").append(containerDiv);
+      $("#main").append(sectionDiv);
 
       data_1.forEach(function (row) {
         if (row.Visibility == "FALSE") {
@@ -38,19 +38,19 @@ $(document).ready(function () {
         } else {
           // update each of these according to your own column names (e.g. "row.Company"). these are case-sensitive
           $(
-            `<div class='item'><div class="item-header"><h3>
+            `<div class='item'><div class="item__header"><h3>
               ${row.Organization}, ${row.Location}
               </h3>
               <p>
               ${row.Time}
               </p>
               </div>
-              <p class='position'>
+              <p class='item__position'>
               ${row.Position}
-              </p><p class='description'>
+              </p><p class='item__description'>
               ${row.Description}
               </p></div>`
-          ).appendTo(containerDiv);
+          ).appendTo(sectionDiv);
         }
       });
     })
@@ -60,19 +60,19 @@ $(document).ready(function () {
     .done(
       /* -------------------------------- section 2 ------------------------------- */
       function (data_2) {
-        const containerDiv = $("<div>", {
+        const sectionDiv = $("<div>", {
           id: `${sections[2].name}`,
         });
 
         $("#main").append(`<h2>${sections[2].name}</h2>`);
-        $("#main").append(containerDiv);
+        $("#main").append(sectionDiv);
 
         data_2.forEach(function (row) {
           if (row.Visibility == "FALSE") {
             return;
           } else {
             $(
-              `<div class='item'><div class="item-header"><h3>
+              `<div class='item'><div class="item__header"><h3>
                 ${row.Institution}, ${row.Location}
                 </h3>
                 <p>
@@ -81,10 +81,10 @@ $(document).ready(function () {
                 </div>
                 <p class='degree'>
                 ${row.Degree}
-                </p><p class='description'>
+                </p><p class='item__description'>
                 ${row.Description}
                 </p></div>`
-            ).appendTo(containerDiv);
+            ).appendTo(sectionDiv);
           }
         });
       }
@@ -95,29 +95,29 @@ $(document).ready(function () {
     .done(
       /* -------------------------------- section 3 ------------------------------- */
       function (data_3) {
-        const containerDiv = $("<div>", {
+        const sectionDiv = $("<div>", {
           id: `${sections[3].name}`,
         });
 
         $("#main").append(`<h2>${sections[3].name}</h2>`);
-        $("#main").append(containerDiv);
+        $("#main").append(sectionDiv);
 
         data_3.forEach(function (row) {
           if (row.Visibility == "FALSE") {
             return;
           } else {
             $(
-              `<div class='item'><div class="item-header"><h3>
+              `<div class='item'><div class="item__header"><h3>
                 ${row.Project}
                 </h3>
                 <p>
                 ${row.Time}
                 </p>
                 </div>
-                <p class='description'>
+                <p class='item__description'>
                 ${row.Description}
                 </p></div>`
-            ).appendTo(containerDiv);
+            ).appendTo(sectionDiv);
           }
         });
       }
@@ -128,29 +128,29 @@ $(document).ready(function () {
     .done(
       /* -------------------------------- section 4 ------------------------------- */
       function (data_4) {
-        const containerDiv = $("<div>", {
+        const sectionDiv = $("<div>", {
           id: `${sections[4].name}`,
         });
 
         $("#main").append(`<h2>${sections[4].name}</h2>`);
-        $("#main").append(containerDiv);
+        $("#main").append(sectionDiv);
 
         data_4.forEach(function (row) {
           if (row.Visibility == "FALSE") {
             return;
           } else {
             $(
-              `<div class='item'><div class="item-header"><h3>
+              `<div class='item'><div class="item__header"><h3>
                 ${row.Award}
                 </h3>
                 <p>
                 ${row.Time}
                 </p>
                 </div>
-                <p class='description'>
+                <p class='item__description'>
                 ${row.Description}
                 </p></div>`
-            ).appendTo(containerDiv);
+            ).appendTo(sectionDiv);
           }
         });
       }
@@ -161,16 +161,17 @@ $(document).ready(function () {
     .done(
       /* -------------------------------- section 5 ------------------------------- */
       function (data_5) {
-        const containerDiv = $("<div>", {
+        const sectionDiv = $("<div>", {
           id: `${sections[5].name}`,
         });
+        // everything below this line looks a little different from the other sections because the 'skills' section has special formatting
         const list = $("<ul>", {
-          id: "skills-list",
+          id: "skills__columns",
         });
-        list.appendTo(containerDiv);
+        list.appendTo(sectionDiv);
 
         $("#main").append(`<h2>${sections[5].name}</h2>`);
-        $("#main").append(containerDiv);
+        $("#main").append(sectionDiv);
 
         data_5.forEach(function (row) {
           if (row.Visibility == "FALSE") {
@@ -182,6 +183,6 @@ $(document).ready(function () {
       }
     );
   /* -------------------------------------------------------------------------- */
-  /*                        fill in any new sections here                       */
+  /*                          add any new sections here                         */
   /* -------------------------------------------------------------------------- */
 });

@@ -2,7 +2,7 @@
 
 # Dynamic Resumes for the Dynamic Being
 
-This tutorial shows you how to set up your resume using a spreadsheet so you can create different versions of your work history with the click of a checkbox. The data is automatically formatted into a single-page, print-friendly layout using HTML, CSS, JavaScript, and jQuery. Since the resulting file is a webpage, you can also use it to host your resume online. Detailed instructions and template previews can be found at [dynamic-resume-preview.netlify.app](https://dynamic-resume-preview.netlify.app/). An abbreviated version of the instructions follows below.
+This tutorial shows you how to set up your resume using a spreadsheet so you can create different versions of your work history with the click of a checkbox. The data is automatically formatted into a single-page, print-friendly layout using HTML, CSS, JavaScript, and jQuery. Since the resulting file is a webpage, you can also use it to host your resume online. Detailed instructions and template previews can be found at [dynamic-resume-preview.netlify.app](https://dynamic-resumes.netlify.app/). An abbreviated version of the instructions follows below.
 
 ## Instructions
 
