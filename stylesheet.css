@@ -452,11 +452,14 @@ aside::after {
   margin: calc(var(--small-margin) * 6) auto;
 
   background-color: var(--sky-blue);
-  background-image: url(/screengrabs/stop.png);
-  background-size: contain;
+  background-image: url(/screengrabs/stop.jpg);
+
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: soft-light;
+
+  border-radius: 50%;
 
   z-index: 0;
 }
