@@ -7,11 +7,15 @@
 
 :root {
   --padding: 1rem;
-  --margin: 3rem;
-  --u-width: 50vw;
+  --small-margin: 1rem;
+  --big-margin: 3rem;
   --very-top-bot-margin: 5rem;
+  --u-width: 50vw;
   --border-radius: 3px;
+  --wayfinder-sz: 20px;
 }
+
+/* ------------------------------ main sections ----------------------------- */
 
 html {
   font-size: 14px;
@@ -30,7 +34,7 @@ body {
 header,
 main {
   width: var(--u-width);
-  margin: var(--margin) auto;
+  margin: var(--big-margin) auto;
 }
 
 header {
@@ -55,8 +59,8 @@ main {
   background: linear-gradient(
     0deg,
     rgba(255, 255, 255, 0) 0%,
-    var(--sky-blue-half) 5%,
-    var(--sky-blue) 8%,
+    var(--sky-blue-half) 1%,
+    var(--sky-blue) 5%,
     var(--sky-blue) 50%,
     var(--sky-blue) 95%,
     var(--sky-blue-half) 98%,
@@ -69,6 +73,38 @@ main {
   padding-bottom: 50vh;
 }
 
+footer {
+  width: var(--u-width);
+  height: fit-content;
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: calc(var(--big-margin) / 2);
+  padding-bottom: var(--very-top-bot-margin);
+
+  color: var(--platinum);
+
+  & > a {
+    text-align: center;
+
+    font-family: "DM Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.8rem;
+
+    text-transform: uppercase;
+    text-decoration: none !important;
+  }
+
+  & > a::after {
+    content: " \2197";
+  }
+}
+
+/* -------------------------- text, links, buttons -------------------------- */
+
 h1 {
   font-family: Ballet, cursive;
   font-optical-sizing: auto;
@@ -78,7 +114,7 @@ h1 {
   font-size: 7rem;
   text-align: center;
   line-height: 5rem;
-  text-shadow: 0px 0px 6px rgba(255, 255, 255);
+  text-shadow: 0px 0px 6px var(--platinum);
   color: var(--sky-blue);
 }
 
@@ -97,25 +133,22 @@ h1 {
 }
 
 h2 {
-  position: -webkit-sticky;
-  position: sticky;
-  top: -1px;
+  margin-top: calc(var(--small-margin) * 2);
+  margin-bottom: var(--small-margin);
 
-  padding-top: calc(var(--padding) * 2);
-  margin-bottom: var(--padding);
-
-  border-bottom: 1px solid var(--platinum);
+  border-bottom: 2px solid var(--platinum);
   color: var(--platinum);
 }
 
 h3 {
-  padding-top: var(--padding);
+  margin-top: calc(var(--small-margin) * 2);
   font-style: italic;
 }
 
 h4 {
-  padding-top: var(--padding);
+  margin-top: var(--small-margin);
 
+  border-bottom: 2px dotted var(--platinum);
   font-family: "DM Mono", monospace;
   font-weight: 500;
   text-transform: uppercase;
@@ -128,38 +161,118 @@ h4,
 table,
 aside {
   color: var(--platinum);
-  padding-bottom: var(--padding);
+  margin-bottom: var(--small-margin);
 }
 
 a {
-  color: var(--gold);
+  color: var(--platinum);
   text-shadow: 0px 0px 6px var(--onyx);
 }
 
-ul.main-list {
+#template-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
   margin-top: 1rem;
-  margin-left: 2ch;
+  margin-left: 0;
+  /* margin-left: 2ch; */
+  list-style: none;
 }
 
-ul.main-list > li {
-  padding-left: 1ch;
+#template-buttons > a {
+  padding: calc(var(--padding) * 1.5);
+
+  border: 2px solid var(--platinum);
+  border-radius: calc(var(--border-radius) * 50);
+
+  text-shadow: none;
+  text-decoration: none;
+
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+
+  transition: background-color 0.2s linear;
 }
+
+#template-buttons > a:hover {
+  background-color: var(--platinum-half);
+  /* color: var(--sky-blue); */
+}
+
+ol.steps > li {
+  position: relative;
+}
+
+ol.steps > li::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: calc(var(--wayfinder-sz) * -2);
+
+  width: var(--wayfinder-sz);
+  height: var(--wayfinder-sz);
+  background-size: contain;
+
+  -webkit-filter: drop-shadow(0px 0px 6px var(--platinum));
+  filter: drop-shadow(0px 0px 6px var(--platinum));
+}
+
+ol.steps > li.gsheets::after {
+  background-image: url(/screengrabs/sheets-logo.png);
+}
+
+/* ol.steps > li.gsheets:hover::after {
+  content: "This icon tells indicates where we are for any given step. For this step, we're in the Google spreadsheet.";
+} */
+
+ol.steps > li.glitch::after {
+  /* content: "This icon tells indicates where we are for any given step. For this step, we're in the Glitch template."; */
+  background-image: url(/screengrabs/glitch-logo.png);
+}
+
+ol.steps > li.dr4db::after {
+  /* content: "This icon tells indicates where we are for any given step. For this step, we're on this website."; */
+  background-image: url(/screengrabs/dynamic-resume-logo.png);
+}
+
+span.green {
+  background-color: var(--viridian);
+  border-radius: var(--border-radius);
+  padding: 3px;
+}
+
+/* --------------------------------- images --------------------------------- */
 
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: var(--padding);
+  margin-bottom: var(--small-margin);
+  border-radius: var(--border-radius);
 }
 
-img.example-gif {
+img.max-height {
+  width: auto;
+  max-height: 60vh;
+}
+
+img.max-width {
   max-width: 50vw;
   height: auto;
 }
 
-img.promo-gif {
-  width: auto;
-  max-height: 60vh;
+img.diagram {
+  position: relative;
+  transition: transform 0.2s linear, box-shadow 0.2s linear;
+}
+
+img.diagram:hover {
+  transform: scale(2);
+  box-shadow: 0px 0px 6px var(--onyx);
+  z-index: 20;
 }
 
 img.sticky {
@@ -168,7 +281,10 @@ img.sticky {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
+  border-radius: 0;
 }
+
+/* ------------------------------- code blocks ------------------------------ */
 
 code {
   font-family: "DM Mono", monospace;
@@ -190,18 +306,14 @@ code:not(.lang-jsx) {
   overflow-y: hidden;
 
   background-color: var(--platinum-half);
-  /* background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(6, 5, 80, 0) 36%,
-    rgba(9, 9, 121, 0) 100%
-  ); */
   border-radius: var(--border-radius);
   padding: var(--padding);
 
   position: relative;
 
   color: var(--onyx);
+  box-shadow: inset -30px 0px 25px -25px var(--sky-blue);
+  transition: box-shadow 0.2s linear;
 }
 
 .code-block::after {
@@ -211,13 +323,18 @@ code:not(.lang-jsx) {
   right: 0;
   width: 40%;
   height: 100%;
-  border: 1px solid red;
 }
+
+li > ul > li > .code-block {
+  margin-left: calc(-1 * 2ch);
+}
+
+/* ---------------------------------- table --------------------------------- */
 
 table {
   width: 100%;
   table-layout: fixed;
-  border-spacing: 0;
+  border-spacing: 0px;
 }
 
 thead {
@@ -234,13 +351,13 @@ th {
   text-transform: uppercase;
 
   border-radius: var(--border-radius) var(--border-radius) 0 0;
-  border-top: 1px solid var(--platinum);
-  border-left: 1px solid var(--platinum);
-  border-right: 1px solid var(--platinum);
+  border-top: 2px solid var(--platinum);
+  border-left: 2px solid var(--platinum);
+  border-right: 2px solid var(--platinum);
 }
 
 th:nth-of-type(1) {
-  background-color: #417b5a;
+  background-color: var(--viridian);
 }
 
 th:nth-of-type(2) {
@@ -248,7 +365,7 @@ th:nth-of-type(2) {
 }
 
 th:nth-of-type(3) {
-  background-color: #ec0b43;
+  background-color: var(--munsell);
 }
 
 tr.tips > td {
@@ -256,17 +373,17 @@ tr.tips > td {
 
   /* border-radius: 0 0 var(--border-radius) var(--border-radius); */
   /* border-bottom: 1px solid var(--platinum); */
-  border-left: 1px solid var(--platinum);
-  border-right: 1px solid var(--platinum);
+  border-left: 2px solid var(--platinum);
+  border-right: 2px solid var(--platinum);
 
   background-color: var(--platinum-quarter);
   font-size: 0.7rem;
 }
 
 tr.categories > td {
-  border-bottom: 1px solid var(--platinum);
-  border-left: 1px solid var(--platinum);
-  border-right: 1px solid var(--platinum);
+  border-bottom: 2px solid var(--platinum);
+  border-left: 2px solid var(--platinum);
+  border-right: 2px solid var(--platinum);
 }
 
 td {
@@ -290,6 +407,8 @@ tr > td {
 ul.table__list > li {
   margin-left: 0.5rem;
 }
+
+/* --------------------------------- asides --------------------------------- */
 
 aside {
   position: relative;
@@ -319,35 +438,58 @@ aside::after {
   font-style: normal;
 }
 
-footer {
-  width: var(--u-width);
+/* ---------------------------- facilitator note ---------------------------- */
+
+.facilitator-note {
+  width: 100%;
   height: fit-content;
   position: relative;
+  margin: calc(var(--small-margin) * 6) auto;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: calc(var(--margin) / 2);
-  padding-bottom: var(--very-top-bot-margin);
+  background-color: var(--sky-blue);
+  background-image: url(/screengrabs/stop.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
 
+  z-index: 0;
+}
+
+.facilitator-note > p {
+  font-family: "Old Standard TT", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 3rem;
+  font-style: italic;
+  text-align: center;
   color: var(--platinum);
 
-  & > a {
-    text-align: center;
-
-    font-family: "DM Mono", monospace;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 0.8rem;
-
-    text-transform: uppercase;
-    text-decoration: none !important;
-  }
-
-  & > a::after {
-    content: " \2197";
-  }
+  z-index: 10;
 }
+
+.facilitator-note:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+
+  width: 100px;
+  height: 100px;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0) 0%,
+    var(--sky-blue) 70%,
+    var(--sky-blue) 100%
+  );
+  border-radius: 50%;
+
+  z-index: -10;
+}
+
+/* ------------------------------- responsive ------------------------------- */
 
 @media only screen and (max-width: 668px) {
   :root {
@@ -373,5 +515,9 @@ footer {
 
   img.sticky {
     max-width: var(--u-width);
+  }
+
+  #template-buttons {
+    justify-content: space-between;
   }
 }

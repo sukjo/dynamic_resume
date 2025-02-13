@@ -4,8 +4,10 @@
   --platinum: #eaeaea;
   --platinum-half: rgba(234, 234, 234, 0.5);
   --platinum-quarter: rgba(234, 234, 234, 0.2);
+  --munsell: #ec0b43;
   --onyx: #32353e;
-  --gold: #d1ac00;
+  --viridian: #417b5a;
+  --gold: #d5a021;
 }
 
 html {
@@ -33,8 +35,10 @@ details.tooltip {
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8rem;
   line-height: 1.2rem;
 }
 
@@ -85,11 +89,13 @@ a.use {
   border-left: 2px solid rgb(233 233 233);
   text-align: center;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.5rem;
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem;
+  text-transform: uppercase;
   /* line-height: 2rem; */
 
-  vertical-align: bottom;
   -moz-transform: rotate(20deg);
   -webkit-transform: rotate(20deg);
   -ms-transform: rotate(20deg);
@@ -111,7 +117,7 @@ a.use {
 }
 
 a.use:hover {
-  color: white !important;
+  color: var(--platinum) !important;
   background-color: var(--sky-blue);
 }
 
@@ -119,15 +125,20 @@ a.use::after {
   content: "";
 }
 
+a.use > span:first-of-type {
+  padding-top: 0.5rem;
+}
+
 span.arrow {
-  font-size: 3rem;
+  font-size: 4rem;
+  line-height: 2rem;
   color: var(--sky-blue);
 }
 
 span.arrow:hover {
-  animation: wiggle 0.15s ease-in-out;
-  animation-iteration-count: 3;
-  color: white;
+  /* animation: wiggle 0.15s ease-in-out;
+  animation-iteration-count: 3; */
+  color: var(--platinum);
 }
 
 @keyframes wiggle {

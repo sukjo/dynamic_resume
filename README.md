@@ -14,7 +14,7 @@ From there, you can customize the content from within the Google Spreadsheet. Ma
 
 The special ingredient here is the `visibility` column, which allows you to include or exclude an experience in a quick and non-destructive way. This is helpful when you need to refine your past experiences for a specific role, or if you want to keep your past and current resume data all in one place.
 
-![a user checks two unchecked 'visibility' boxes on the spreadsheet, then refreshes the locally-hosted web page to watch it add the new rows in live ttime](/screengrabs/screenrec.gif "resume updating in live time")
+![a user checks two unchecked 'visibility' boxes on the spreadsheet, then refreshes the locally-hosted web page to watch it add the new rows in live time](/screengrabs/screenrec.gif "resume updating in live time")
 
 Once you're happy with the contents, serve your site to localhost in the browser and use the `print` command to open up a preview of your fully formatted resume. You can either print the document directly or save the file as a PDF to send off into the world.
 

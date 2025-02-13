@@ -44,7 +44,7 @@ $(document).ready(function () {
               <div class='item__meta'>
                 <h3>${row.Organization}</h3>
                 <p class='position'>${row.Position}</p>
-                <p class='time'>${row.Time}</p>
+                <p class='time'>${row.Time} • ${row.Location}</p>
               </div>
               <div class='item__description'>
                 <p>${row.Description}</p>
@@ -80,6 +80,9 @@ $(document).ready(function () {
               <div class='item__meta'>
                 <h3>${row.Institution}</h3>
                 <p class='degree'>${row.Degree}</p>
+                <p class='time'>
+                ${row.Time}
+                </p>
               </div>
               <div class='item__description'>
                 <p>${row.Description}</p>

@@ -19,7 +19,7 @@
         Dynamic Being
       </h1>
       <p id="date-time">Thursday, February 13, 2025 at 6 pm EST</p>
-      <img class="promo-gif" src="/screengrabs/papers-alone.gif" />
+      <img class="max-height" src="/screengrabs/papers-alone.gif" alt="animation of one person's slightly different resumes stacking on top of one another" />
     </header>
     <div id="main-bg">
       <main>
@@ -33,7 +33,7 @@
         </p>
         <h2>Project Preview</h2>
         <p>This is a preview of what we'll be making today:</p>
-        <img class="example-gif" src="/screengrabs/screenrec.gif" />
+        <img class="max-width" src="/screengrabs/screenrec.gif" alt="a user checks two unchecked 'visibility' boxes on the spreadsheet, then refreshes the locally-hosted web page to watch it add the new rows in live time" />
         <p>
           Basically, it's a "smart" resume. All the main contents of your resume
           are stored in a cloud-based spreadsheet, which itself connects to a
@@ -80,7 +80,7 @@
           types of job titles and sectors, as I was trying to pivot my
           professional life away from serving monopoly capital. I couldn't rely
           on time-pressed, ambivalent employers to decipher my eligibility
-          themselves, so I made a bespoke resume for each job that included only
+          themselves, so I made a unique resume for each job that included only
           the most relevant work experiences, retold in the jargon of the target
           industry. For example, if a role required project management skills, I
           would make mention of my past project management internship and leave
@@ -89,11 +89,11 @@
         <p>
           With the abysmal state of the job market, I soon grew tired of
           manually cutting and pasting new resumes for each listing that came my
-          way. It was tiring to put so much effort into a job application that
+          way. It was emotionally exhausting to put so much effort into a job application that
           would not even guarantee me the courtesy of a rejection email. I
-          wanted a method of applying for jobs that was as nimble and callous as
+          wanted a way to apply for jobs that was as nimble and callous as
           the capitalist job market itself. I imagined a resume that could
-          shapeshift upon a button's click, while retaining as much veracity as
+          shapeshift upon a button's click, while retaining as much honesty as
           possible. My reveries turned to reality when I realized such a thing
           was possible using just basic front-end programming.
         </p>
@@ -117,38 +117,40 @@
         </p>
         <p>With that, let's get into it.</p>
         <h2>Tutorial</h2>
-        <h3>Step #1: Setting up the API</h3>
-        <ol>
-          <li>
-            Make a copy of this
-            <a
-              target="_blank"
-              rel="noopener noreferrer external"
-              href="https://docs.google.com/spreadsheets/d/194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/edit?usp=sharing"
-              >Google Spreadsheet</a
-            >. Change the share settings so that &quot;anyone with the
-            link&quot; can view the document.
+        <h3>Step #1: Setting up the template</h3>
+        <ol class="steps">
+          <li class="gsheets">
+            <p>
+              Open this
+              <a
+                target="_blank"
+                rel="noopener noreferrer external"
+                href="https://docs.google.com/spreadsheets/d/194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/edit?usp=sharing"
+                >Google Spreadsheet</a
+              >. Take a minute to read the instructions page and flip through the tabs to get a sense of the contents.
+            </p>
+            <p>Basically, this spreadsheet functions as the &quot;backend&quot; of your resume. Each tab, aside from the instructions tab, corresponds to its own section on your resume.</p>
+            <img class="max-width diagram" src="/screengrabs/tabs-to-sections.png" alt="a sketch with lines pointing from each spreadsheet tab to its corresponding section in the resume template" />
+            <p>From there, each column within a tab houses a different type of data, such as  a job title, a timeframe, or a description.</p>
+            <img class="max-width diagram" src="/screengrabs/columns-to-data.png" alt="a sketch with lines pointing from each column in the spreadsheet to where it shows up in the resume template" />
+            <p>The checkboxes on the lefthand side are how you tell the template whether to include or exclude a row of data. As you can see, the unchecked rows in the Skills tab do not show up on the resume.</p>
+            <img class="max-width diagram" src="/screengrabs/checkboxes-to-inclusion.png" alt="a sketch demonstrating how unchecked rows in the spreadsheet do not show up in the template" />
           </li>
-          <li>
+          <li class="gsheets">When you're ready to move on, make a copy of the spreadsheet and save it as your own.</li>
+            <li class="gsheets">Change the share settings so that &quot;anyone with the
+            link&quot; can view the document.</li>
+          <li class="dr4db">
             Browse the templates below to decide which one you want to start
             with. When you decide, click the “use this template” button on the
             page. This will open up a Glitch project with the template code
             ready for use.
-            <ol>
-              <ul class="main-list">
-                <li>
-                  <a target="_blank" href="/track_track/">track_track</a>
-                </li>
-                <li>
-                  <a target="_blank" href="/cascadian/">cascadian</a>
-                </li>
-                <li>
-                  <a target="_blank" href="/button_ups/">button_ups</a>
-                </li>
-              </ul>
-            </ol>
+            <div id="template-buttons">
+              <a target="_blank" href="/track_track/">track_track</a>
+              <a target="_blank" href="/cascadian/">cascadian</a>
+              <a target="_blank" href="/button_ups/">button_ups</a
+            </div>
           </li>
-          <li>
+          <li class="glitch">
             <p>
               On the Glitch project, click the “Remix your own” button below the
               project preview. This will duplicate the template and allow you to
@@ -160,19 +162,19 @@
               progress.
             </aside>
           </li>
-          <li>
+          <li class="glitch">
             <p>
-              One you have the project opened, go to the
+              Once you have the project copy open, go to the
               <code>script.js</code> file (in the lefthand pane) and find the
               <code>tabURL</code> keys in the <code>sections</code> object.
               You’ll want to replace these cryptic strings of characters with
-              the ID of your Google Spreadsheet. To find the ID of your
-              spreadsheet, go back to the spreadsheet and click the “share”
-              button.
+              the ID of your Google Spreadsheet.
             </p>
           </li>
-          <li>
-            Click “copy link” and paste the link somewhere you can edit it real
+          <li class="gsheets">
+            To find the ID of your
+              spreadsheet, go back to the spreadsheet and click the “share”
+              button. Click “copy link” and paste the link somewhere you can edit it real
             quick. Then copy only the characters between
             &quot;https://docs.google.com/spreadsheets/d/&quot; and
             &quot;/edit?usp=sharing&quot; in the URL. Replace all the
@@ -183,7 +185,7 @@
             src="/screengrabs/Screenshot 2024-11-20 at 8.42.38 PM.png"
             alt="post-it note showing the key part of the Google Spreadsheet URL highlighted"
           />
-          <li>
+          <li class="glitch">
             <p>
               Add &quot;/1&quot;, &quot;/2&quot;, etc. at the end of each
               <code>tabURL</code> to point to a specific tab in the spreadsheet.
@@ -192,19 +194,68 @@
               These indexes are 1-based and determined based on the order of
               your tabs in the spreadsheet.
             </p>
+            <img class="max-width diagram" src="/screengrabs/tab-order.png" alt="screengrab of each of the tabs in the spreadsheet labeled with &quot;/1&quot;, &quot;/2&quot;, and so on" />
             <aside>
               If you change the order of your tabs in the spreadsheet, you will
               have to update the trailing tab numbers in the
               <code>sections</code> object as well.
             </aside>
           </li>
-          <li>
+          <li class="glitch">
             There you have it! &#9786; Your spreadsheet is now hooked up to your
-            Glitch file. From here, we can start updating the data in the
-            spreadsheet and updating the appearance of our resume.
+            Glitch file. Try updating any data in the <span class="green">green</span> cells in the spreadsheet and refresh your Glitch site. If all's gone well, you should see your new data appear in the template.
           </li>
         </ol>
-        <h3>Step #2: Updating the data</h3>
+        <div class="facilitator-note"><p>Let's pause.</p><p>Are we all seeing our template update when we change data in the spreadsheet? If not, let's troubleshoot!</p></div>
+        <h3>Step #2: Updating your personal information</h3>
+        <p>In order to change the name, email address, and other personal information that shows up on your resume, you'll have to make updates to the <code>index.html</code> file.</p>
+        <ol class="steps">
+          <li class="glitch">Open the <code>index.html</code> in Glitch.</li>
+          <li class="glitch">Locate the lines that contain the filler information (e.g. &quot;Your Name&quot;). Replace these lines with your informatiion. You should see the template update accordingly. From here, you can add or remove elements according to what personal information you want on your resume.</li>
+        </ol>
+        <h3>Step #3: Updating Styles</h3>
+        <p>
+          I won’t go into too much detail for the below style updates, but each
+          of these tweaks are fairly manageable for beginner coders and are
+          supported by existing documentation online.
+        </p>
+        <h4>Fonts</h4>
+        <p>
+          Fonts are easy to update. One method of inserting a custom font is to go to a
+          source like
+          <a
+            target="_blank"
+            rel="noopener noreferrer external"
+            href="https://fonts.google.com/"
+            >fonts.google.com</a
+          >
+          and select some font families you want to use. Once you have your cart
+          filled, follow the embed instructions to install them in your
+          <code>index.html</code>. Then update your <code>stylesheet.css</code> accordingly.
+        </p>
+        <h4>Colors</h4>
+        <p>
+          In the <code>stylesheet.css</code>, look for lines that say
+          <code>color:</code>, <code>background-color:</code>, or any variation
+          of <code>border</code>. These lines are the only instances of color
+          that I’ve already defined in the templates. You can swap out the color
+          names (e.g. <code>black</code>, <code>dodgerblue</code>) with any
+          other
+          <a
+            target="_blank"
+            rel="noopener noreferrer external"
+            href="https://www.w3schools.com/cssref/css_colors.php"
+            >supported CSS color</a
+          >
+          or a hex, RGB, HSL, or HWB value.
+        </p>
+        <aside>
+          If you are using the cascadian template, look for the variable under
+          <code>:root</code> that says <code>--accent-col:</code>. This is where
+          the accent color of the template is defined.
+        </aside>
+        <div class="facilitator-note"><p>Pause again!</p><p>The following section tells us how to make more complicated changes. Do we want to cover these together or just play independently?</p></div>
+        <h3>Step #4: Updating the data</h3>
         <p>
           As you’ll see in the first tab of the spreadsheet labeled
           “instructions”, any update you make in the spreadsheet itself may or
@@ -224,7 +275,7 @@
               <td>
                 <em
                   >you can update these freely and the changes will be reflected
-                  in the hosted webpage</em
+                  in the template</em
                 >
               </td>
               <td>
@@ -267,23 +318,23 @@
         <p>
           If you’re satisfied with the pre-provided section headers (e.g.
           “experience”, “education”, “projects”) and column headers (e.g.
-          “institution”, “degree”, “location”), you can start updating the green
+          “institution”, “degree”, “location”), you can start updating the <span class="green">green</span>
           cells in the spreadsheet with your own information. If you want to
           customize these details, proceed through the following steps.
         </p>
-        <h4>To change section name:</h4>
+        <h4>To change a section name:</h4>
         <p>
           Updating the section name in the spreadsheet tab does not
           automatically rename the corresponding section on your resume. You
           also have to update the name of the section in the
           <code>script.js</code> file.
         </p>
-        <ol>
-          <li>
+        <ol class="steps">
+          <li class="gsheets">
             For consistency's sake, start by renaming the tab in the spreadsheet
             to whatever you want (i.e. change “awards” to "publications").
           </li>
-          <li>
+          <li class="glitch">
             Then, in the <code>script.js</code> file, go to the
             <code>sections</code> object at the top and change the
             <code>name</code> value to your new section name. This will update
@@ -297,16 +348,16 @@
           work, you have to change these both in the spreadsheet and the
           <code>script.js</code>.
         </p>
-        <ol>
-          <li>
+        <ol class="steps">
+          <li class="gsheets">
             Update the name of the column header directly in the spreadsheet
             first. Keep in mind these are case-sensitive. I recommend
             capitalizing the first letter to keep things consistent.
           </li>
-          <li>
+          <li class="glitch">
             Go to the section that you updated in your <code>script.js</code>.
           </li>
-          <li>
+          <li class="glitch">
             Find the line that has the name of your old column header (I like to
             use <code>CMD + F</code> or <code>CTRL + F</code> for this). It
             should be something like <code>${row.Organization}</code>. Replace
@@ -335,23 +386,23 @@
           a desired output. If you need help, you can ask a question in the chat
           or <a href="mailto:info@joannesuk.com">email me</a>.
         </p>
-        <ol>
-          <li>
+        <ol class="steps">
+          <li class="gsheets">
             Add a new section by inserting a new tab or “sheet” in the
             spreadsheet. Name it whatever you want the new section of your
             resume to be.
           </li>
-          <li>
+          <li class="gsheets">
             If you want to make each row’s visibility modifiable, as they are in
             the original tabs, make the first (leftmost) column the “Visibility”
             column (case-sensitive) and fill the rows with checkboxes.
           </li>
           <li>Fill in the rest of the column headers as you desire.</li>
-          <li>
+          <li class="gsheets">
             After setting up the new section, be sure to freeze the first row in
             the sheet. This tells the API what to call each column of data.
           </li>
-          <li>
+          <li class="glitch">
             <p>
               In the <code>script.js</code> file, go to the very bottom where it
               says
@@ -364,14 +415,14 @@
                 </code></pre>
               </div>
           </li>
-          <li>
+          <li class="glitch">
             <p>
               Underneath this new section marker, copy and paste the code
               snippet that coordinates with your chosen template:
             </p>
             <!-- prettier-ignore -->
             <ul>
-          <li><p>track_track</p>
+          <li class="glitch"><p>track_track</p>
           <div class="code-block">
             <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
              <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
@@ -399,7 +450,7 @@
             </code></pre>
           </div>
           </li>
-          <li><p>cascadian</p>
+          <li class="glitch"><p>cascadian</p>
             <!-- prettier-ignore -->
           <div class="code-block">
             <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
@@ -433,7 +484,7 @@
             </code></pre>
           </div>
           </li>
-          <li><p>button_ups</p>
+          <li class="glitch"><p>button_ups</p>
           <div class="code-block">
             <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
                <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
@@ -462,7 +513,7 @@
           </li>
         </ul>
           </li>
-          <li>
+          <li class="glitch">
             <p>
               Replace all instances of <code>TAB_NUMBER</code> with the number
               of your tab in the spreadsheet. Keep the surrounding code intact.
@@ -472,7 +523,7 @@
               “instructions” tab would be 1, “experience” would be 2, and so on.
             </aside>
           </li>
-          <li>
+          <li class="glitch">
             <p>
               Replace “// FILL IN YOUR DESIRED HTML OUTPUT HERE” with the DOM
               elements, classes, and column headers that you want for your new
@@ -517,47 +568,6 @@
             </div>
           </li>
         </ol>
-        <h3>Step #3 (optional): Updating Styles</h3>
-        <p>
-          I won’t go into too much detail for the below style updates, but each
-          of these tweaks are fairly manageable for beginner coders and are
-          supported by existing documentation online.
-        </p>
-        <h4>Fonts</h4>
-        <p>
-          Fonts are easy to update. To insert a custom font, you can go to a
-          source like
-          <a
-            target="_blank"
-            rel="noopener noreferrer external"
-            href="https://fonts.google.com/"
-            >fonts.google.com</a
-          >
-          and select some font families you want to use. Once you have your cart
-          filled, follow the embed instructions to install them in your
-          template.
-        </p>
-        <h4>Colors</h4>
-        <p>
-          In the <code>stylesheet.css</code>, look for lines that say
-          <code>color:</code>, <code>background-color:</code>, or any variation
-          of <code>border</code>. These lines are the only instances of color
-          that I’ve already defined in the templates. You can swap out the color
-          names (e.g. <code>black</code>, <code>dodgerblue</code>) with any
-          other
-          <a
-            target="_blank"
-            rel="noopener noreferrer external"
-            href="https://www.w3schools.com/cssref/css_colors.php"
-            >supported CSS color</a
-          >
-          or a hex, RGB, HSL, or HWB value.
-        </p>
-        <aside>
-          If you are using the cascadian template, look for the variable under
-          <code>:root</code> that says <code>--accent-col:</code>. This is where
-          the accent color of the template is defined.
-        </aside>
         <h2 id="general-caveats">General Caveats</h2>
         <ul>
           <li>
@@ -589,13 +599,21 @@
             sensitive information (i.e. passwords, birth dates, etc.) off your
             spreadsheet just in case a bad actor stumbles upon it.
           </li>
+          <li>The Opensheeet API caches responses for 30 seconds before making a new request in order to improve performance and avoid hitting <a target="_blank"
+            rel="noopener noreferrer external" href="https://developers.google.com/sheets/api/limits">Google Sheets' rate limit</a>. This means you'll have to wait 30 seconds after your last update to see the latest edits in your template.
+          </li>
         </ul>
-        <h2 id="closeout">Closeout</h2>
+        <h2 id="closing">Closing</h2>
         <p>
           Congrats! You’ve made it to the end of the tutorial &#9786; Thanks for
           your willingness to learn new things and invest time in a process that
           will pay you forward for job apps to come.
         </p>
+        <p>Thank you also to <a target="_blank"
+            rel="noopener noreferrer external" href="https://cindy-hu.com/">Cindy Hu</a> for co-facilitating this workshop; to Zichen Oliver Yuan, Dre Jacome, and Piece for being the first ones to see utility of a dynamic resume; and to Eliette Choi for proofreading.</p>
+        <p>This template was made by Jo Suk using Ben Borgers' <a target="_blank"
+            rel="noopener noreferrer external" href="https://github.com/benborgers/opensheet#readme">opensheet API</a> and inspired by Chia Amisola's <a target="_blank"
+            rel="noopener noreferrer external" href="https://ambient.institute/i/sheets/">sheet sites tutorial</a>.</p>
         <footer>
           <a
             target="_blank"
@@ -612,5 +630,20 @@
         </footer>
       </main>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const codeBlocks = document.querySelectorAll(".code-block");
+
+        codeBlocks.forEach((cb) => {
+          cb.addEventListener("scroll", function() {
+            if (cb.scrollLeft + cb.clientWidth >= cb.scrollWidth) {
+              cb.style.boxShadow = "none"; 
+            } else {
+              cb.style.boxShadow = "inset -30px 0px 25px -25px var(--sky-blue)"; 
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
