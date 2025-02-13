@@ -47,7 +47,7 @@
         <ul>
           <li>Google Spreadsheet with your resume data</li>
           <li>
-            The dynamic resume template (we'll be using ours in Glitch, an
+            The dynamic resume template AKA the webpage code (we'll be using ours in Glitch, an
             online
             <a
               target="_blank"
@@ -254,7 +254,6 @@
           <code>:root</code> that says <code>--accent-col:</code>. This is where
           the accent color of the template is defined.
         </aside>
-        <div class="facilitator-note"><p>Pause again!</p><p>The following section tells us how to make more complicated changes. Do we want to cover these together or just play independently?</p></div>
         <h3>Step #4: Updating the data</h3>
         <p>
           As you’ll see in the first tab of the spreadsheet labeled
@@ -309,7 +308,7 @@
               <td>
                 <ul class="table__list">
                   <li>frozen rows</li>
-                  <li>document access permissions</li>
+                  <li>document access permissions (should be "anyone with the link can view")</li>
                 </ul>
               </td>
             </tr>
@@ -365,6 +364,10 @@
             spreadsheet (i.e. <code>${row.Company}</code>).
           </li>
         </ol>
+        <div class="facilitator-note">
+          <p>Break time!</p>
+          <p>Let's take 10 minutes to ourselves. When we come back, we can either continue with the last section (which entails a more complicated change) OR co-work on our templates while I answer questions.</p>
+        </div>
         <h4>To add a new section:</h4>
         <p>
           Before you go on, you should know that the following steps require
@@ -417,97 +420,95 @@
           </li>
           <li class="glitch">
             <p>
-              Underneath this new section marker, copy and paste the code
-              snippet that coordinates with your chosen template:
+              Underneath this section marker, copy and paste one of the code
+              snippets below, according to which template you're using:
             </p>
             <!-- prettier-ignore -->
             <ul>
           <li class="glitch"><p>track_track</p>
           <div class="code-block">
-            <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-             <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
-           })
-             .done(
-               <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
-               <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
-           <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
-             <span class="hljs-attr">id</span>: <span class="hljs-string">`<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>`</span>,
-             <span class="hljs-attr">class</span>: <span class="hljs-string">"sub-container"</span>,
-           });
-           rightcol.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[<span class="hljs-number">4</span>].name}</span>&lt;/h2&gt;`</span>);
-           rightcol.append(containerDiv);
-           data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
-             <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
-               <span class="hljs-keyword">return</span>;
-             } <span class="hljs-keyword">else</span> {
-               $(
-                 <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
-               ).appendTo(containerDiv);
-             }
-           });
-               }
-             );
-            </code></pre>
+            <pre><code class="lang-jsx">.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
+})
+.done(
+  <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
+    <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
+      <span class="hljs-attr">id</span>: <span class="hljs-string">`<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>`</span>,
+      <span class="hljs-attr">class</span>: <span class="hljs-string">"sub-container"</span>,
+    });
+  rightcol.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[<span class="hljs-number">4</span>].name}</span>&lt;/h2&gt;`</span>);
+  rightcol.append(containerDiv);
+  data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
+    <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) { <span class="hljs-keyword">// if checkbox is unchecked</span>
+      <span class="hljs-keyword">return</span>;
+    } <span class="hljs-keyword">else</span> {
+      $(
+        <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
+      ).appendTo(containerDiv);
+    }
+  });
+});
+  </code></pre>
           </div>
           </li>
           <li class="glitch"><p>cascadian</p>
             <!-- prettier-ignore -->
           <div class="code-block">
-            <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-               <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
-             })
-             .done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
-               <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
-               <span class="hljs-keyword">let</span> rowCount = <span class="hljs-number">0</span>;
-      
-               <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
-           <span class="hljs-attr">id</span>: <span class="hljs-string">"section-TAB_NUMBER"</span>,
-           <span class="hljs-attr">class</span>: <span class="hljs-string">"main-row"</span>,
-               });
-      
-               $(<span class="hljs-string">"#main"</span>).append(containerDiv);
-               containerDiv.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>&lt;/h2&gt;`</span>);
-      
-               data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
-           <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
-             <span class="hljs-keyword">return</span>;
-           } <span class="hljs-keyword">else</span> {
-             rowCount++;
-             $(
-               <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
-             ).appendTo(containerDiv);
-           }
-               });
-      
-               $(<span class="hljs-string">":root"</span>).css(<span class="hljs-string">"--sTAB_NUMBER-row-count"</span>, rowCount);
-             })
-            </code></pre>
+            <pre><code class="lang-jsx">.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
+  })
+.done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
+    <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
+    <span class="hljs-keyword">let</span> rowCount = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
+      <span class="hljs-attr">id</span>: <span class="hljs-string">"section-TAB_NUMBER"</span>,
+      <span class="hljs-attr">class</span>: <span class="hljs-string">"main-row"</span>,
+    });
+
+    $(<span class="hljs-string">"#main"</span>).append(containerDiv);
+    containerDiv.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>&lt;/h2&gt;`</span>);
+
+    data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
+      <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
+        <span class="hljs-keyword">return</span>;
+      } <span class="hljs-keyword">else</span> {
+        rowCount++;
+        $(
+          <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
+        ).appendTo(containerDiv);
+      }
+    });
+
+    $(<span class="hljs-string">":root"</span>).css(<span class="hljs-string">"--sTAB_NUMBER-row-count"</span>, rowCount);
+})
+  </code></pre>
           </div>
           </li>
           <li class="glitch"><p>button_ups</p>
           <div class="code-block">
-            <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-               <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
-             })
-             .done(
-               <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
-               <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
-           <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
-             <span class="hljs-attr">id</span>: <span class="hljs-string">`<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>`</span>,
-           });
-           $(<span class="hljs-string">"#main"</span>).append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>&lt;/h2&gt;`</span>);
-           $(<span class="hljs-string">"#main"</span>).append(containerDiv);
-           data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
-             <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
-               <span class="hljs-keyword">return</span>;
-             } <span class="hljs-keyword">else</span> {
-               $(
-               <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
-               ).appendTo(containerDiv);
-             }
-           });
-               }
-             )
+            <pre><code class="lang-jsx">.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
+})
+.done(
+  <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_TAB_NUMBER</span>) </span>{
+    <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
+     <span class="hljs-attr">id</span>: <span class="hljs-string">`<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>`</span>,
+    });
+    $(<span class="hljs-string">"#main"</span>).append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[TAB_NUMBER].name}</span>&lt;/h2&gt;`</span>);
+    $(<span class="hljs-string">"#main"</span>).append(containerDiv);
+    data_TAB_NUMBER.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
+      <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
+        <span class="hljs-keyword">return</span>;
+      } <span class="hljs-keyword">else</span> {
+      $(
+    <span class="hljs-comment">// FILL IN YOUR DESIRED HTML OUTPUT HERE</span>
+      ).appendTo(containerDiv);
+      }
+    });
+});
             </code></pre>
           </div>
           </li>
@@ -527,43 +528,44 @@
             <p>
               Replace “// FILL IN YOUR DESIRED HTML OUTPUT HERE” with the DOM
               elements, classes, and column headers that you want for your new
-              section. If you want the section to match the style of previous
+              section. I like to use template literals for this part so I can write new elements in HTML.</p>
+              <p>If you want the section to match the style of previous
               sections, use the existing section contents in the
               <code>script.js</code> as an example. For example, using the
               cascadian template, I might add a new section including my
               statement of intent as such:
             </p>
             <div class="code-block">
-              <pre><code class="lang-jsx"> .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-             <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[<span class="hljs-number">6</span>].tabURL);
-           })
-           .done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_6</span>) </span>{
-             <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
-             <span class="hljs-keyword">let</span> rowCount = <span class="hljs-number">0</span>;
-      
-             <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
-               <span class="hljs-attr">id</span>: <span class="hljs-string">"section-6"</span>,
-               <span class="hljs-attr">class</span>: <span class="hljs-string">"main-row"</span>,
-             });
-      
-             $(<span class="hljs-string">"#main"</span>).append(containerDiv);
-             containerDiv.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[<span class="hljs-number">6</span>].name}</span>&lt;/h2&gt;`</span>);
-      
-             data_6.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
-               <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
-           <span class="hljs-keyword">return</span>;
-               } <span class="hljs-keyword">else</span> {
-           rowCount++;
-           $(
-             <span class="hljs-string">`&lt;div class='item'&gt;
-                 &lt;p class='time'&gt;<span class="hljs-subst">${row.Statement}</span>&lt;/p&gt;
-             &lt;/div&gt;`</span>
-           ).appendTo(containerDiv);
-               }
-             });
-      
-             $(<span class="hljs-string">":root"</span>).css(<span class="hljs-string">"--s6-row-count"</span>, rowCount);
-           })
+              <pre><code class="lang-jsx">.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[<span class="hljs-number">6</span>].tabURL);
+})
+.done(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data_6</span>) </span>{
+  <span class="hljs-comment">/* -------------------------------- section TAB_NUMBER ------------------------------- */</span>
+  <span class="hljs-keyword">let</span> rowCount = <span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">const</span> containerDiv = $(<span class="hljs-string">"&lt;div&gt;"</span>, {
+    <span class="hljs-attr">id</span>: <span class="hljs-string">"section-6"</span>,
+    <span class="hljs-attr">class</span>: <span class="hljs-string">"main-row"</span>,
+  });
+
+  $(<span class="hljs-string">"#main"</span>).append(containerDiv);
+  containerDiv.append(<span class="hljs-string">`&lt;h2&gt;<span class="hljs-subst">${sections[<span class="hljs-number">6</span>].name}</span>&lt;/h2&gt;`</span>);
+
+  data_6.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row</span>) </span>{
+    <span class="hljs-keyword">if</span> (row.Visibility == <span class="hljs-string">"FALSE"</span>) {
+      <span class="hljs-keyword">return</span>;
+    } <span class="hljs-keyword">else</span> {
+      rowCount++;
+      $(
+        <span class="hljs-string">`&lt;div class='item'&gt;
+            &lt;p class='time'&gt;<span class="hljs-subst">${row.Statement}</span>&lt;/p&gt;
+        &lt;/div&gt;`</span>
+      ).appendTo(containerDiv);
+    }
+  });
+
+  $(<span class="hljs-string">":root"</span>).css(<span class="hljs-string">"--s6-row-count"</span>, rowCount);
+});
           </code></pre>
             </div>
           </li>
@@ -610,7 +612,7 @@
           will pay you forward for job apps to come.
         </p>
         <p>Thank you also to <a target="_blank"
-            rel="noopener noreferrer external" href="https://cindy-hu.com/">Cindy Hu</a> for co-facilitating this workshop; to Zichen Oliver Yuan, Dre Jacome, and Piece for being the first ones to see utility of a dynamic resume; and to Eliette Choi for proofreading.</p>
+            rel="noopener noreferrer external" href="https://cindy-hu.com/">Cindy Hu</a> for co-facilitating this workshop; to Oliver, Dre, and Piece for being the first ones to see utility of a dynamic resume; and to KT and Eliette for being my testers and proofers.</p>
         <p>This template was made by Jo Suk using Ben Borgers' <a target="_blank"
             rel="noopener noreferrer external" href="https://github.com/benborgers/opensheet#readme">opensheet API</a> and inspired by Chia Amisola's <a target="_blank"
             rel="noopener noreferrer external" href="https://ambient.institute/i/sheets/">sheet sites tutorial</a>.</p>

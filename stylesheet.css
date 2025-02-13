@@ -329,6 +329,11 @@ li > ul > li > .code-block {
   margin-left: calc(-1 * 2ch);
 }
 
+.hljs-comment {
+  font-style: italic;
+  color: var(--viridian);
+}
+
 /* ---------------------------------- table --------------------------------- */
 
 table {
@@ -468,7 +473,7 @@ aside::after {
   z-index: 10;
 }
 
-.facilitator-note:after {
+/* .facilitator-note:after {
   content: "";
   position: absolute;
   display: block;
@@ -487,7 +492,7 @@ aside::after {
   border-radius: 50%;
 
   z-index: -10;
-}
+} */
 
 /* ------------------------------- responsive ------------------------------- */
 
