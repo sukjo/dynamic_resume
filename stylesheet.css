@@ -446,6 +446,8 @@ aside::after {
 /* ---------------------------- facilitator note ---------------------------- */
 
 .facilitator-note {
+  display: none;
+
   width: 100%;
   height: fit-content;
   position: relative;
