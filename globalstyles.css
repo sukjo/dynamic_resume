@@ -43,7 +43,7 @@ details.tooltip {
 }
 
 ul {
-  list-style-type: "\2734 ";
+  list-style-type: "\2737 ";
   margin-left: 1ch;
 
   & > li {
@@ -136,31 +136,14 @@ span.arrow {
 }
 
 span.arrow:hover {
-  /* animation: wiggle 0.15s ease-in-out;
-  animation-iteration-count: 3; */
   color: var(--platinum);
-}
-
-@keyframes wiggle {
-  0% {
-    rotate: 0deg;
-  }
-  25% {
-    rotate: 16deg;
-  }
-  50% {
-    rotate: 0;
-  }
-  75% {
-    rotate: -16;
-  }
 }
 
 /* ------------------------------ media queries ----------------------------- */
 
 @media only screen and (max-width: 588px) {
-  .tooltip {
-    width: 50vw;
+  details.tooltip {
+    width: 60vw;
   }
 }
 

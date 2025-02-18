@@ -19,7 +19,11 @@
         Dynamic Being
       </h1>
       <p id="date-time">Thursday, February 13, 2025 at 6 pm EST</p>
-      <img class="max-height" src="/screengrabs/papers-alone.gif" alt="animation of one person's slightly different resumes stacking on top of one another" />
+      <img
+        class="max-height"
+        src="/screengrabs/papers-alone.gif"
+        alt="animation of one person's slightly different resumes stacking on top of one another"
+      />
     </header>
     <div id="main-bg">
       <main>
@@ -33,13 +37,17 @@
         </p>
         <h2>Project Preview</h2>
         <p>This is a preview of what we'll be making today:</p>
-        <img class="max-width" src="/screengrabs/screenrec.gif" alt="a user checks two unchecked 'visibility' boxes on the spreadsheet, then refreshes the locally-hosted web page to watch it add the new rows in live time" />
+        <img
+          class="max-width"
+          src="/screengrabs/screenrec.gif"
+          alt="a user checks two unchecked 'visibility' boxes on the spreadsheet, then refreshes the locally-hosted web page to watch it add the new rows in live time"
+        />
         <p>
           Basically, it's a "smart" resume. All the main contents of your resume
           are stored in a cloud-based spreadsheet, which itself connects to a
           webpage. All you have to do to add or remove past work experiences is
           check or uncheck a box in the spreadsheet. The results are
-          automatiically formatted into a single-page, print-friendly layout
+          automatically formatted into a single-page, print-friendly layout
           using HTML, CSS, JavaScript, and jQuery. Since the resulting file is a
           webpage, you can also use it to host your resume online.
         </p>
@@ -47,8 +55,8 @@
         <ul>
           <li>Google Spreadsheet with your resume data</li>
           <li>
-            The dynamic resume template AKA the webpage code (we'll be using ours in Glitch, an
-            online
+            The dynamic resume template AKA the webpage code (we'll be using
+            ours in Glitch, an online
             <a
               target="_blank"
               rel="noopener noreferrer external"
@@ -89,13 +97,13 @@
         <p>
           With the abysmal state of the job market, I soon grew tired of
           manually cutting and pasting new resumes for each listing that came my
-          way. It was emotionally exhausting to put so much effort into a job application that
-          would not even guarantee me the courtesy of a rejection email. I
-          wanted a way to apply for jobs that was as nimble and callous as
-          the capitalist job market itself. I imagined a resume that could
-          shapeshift upon a button's click, while retaining as much honesty as
-          possible. My reveries turned to reality when I realized such a thing
-          was possible using just basic front-end programming.
+          way. It was emotionally exhausting to put so much effort into a job
+          application that would not even guarantee me the courtesy of a
+          rejection email. I wanted a way to apply for jobs that was as nimble
+          and callous as the capitalist job market itself. I imagined a resume
+          that could shapeshift upon a button's click, while retaining as much
+          honesty as possible. My reveries turned to reality when I realized
+          such a thing was possible using just basic front-end programming.
         </p>
         <p>
           The resulting template served me so well I shared it with some
@@ -119,7 +127,7 @@
         <h2>Tutorial</h2>
         <h3>Step #1: Setting up the template</h3>
         <ol class="steps">
-          <li class="gsheets">
+          <li>
             <p>
               Open this
               <a
@@ -127,30 +135,81 @@
                 rel="noopener noreferrer external"
                 href="https://docs.google.com/spreadsheets/d/194UPVhMNitO4epJYmN_z_FSntCDGL1B8KbSqph9X1ig/edit?usp=sharing"
                 >Google Spreadsheet</a
-              >. Take a minute to read the instructions page and flip through the tabs to get a sense of the contents.
+              >. Take a minute to read the instructions page and flip through
+              the tabs to get a sense of the contents.
             </p>
-            <p>Basically, this spreadsheet functions as the &quot;backend&quot; of your resume. Each tab, aside from the instructions tab, corresponds to its own section on your resume.</p>
-            <img class="max-width diagram" src="/screengrabs/tabs-to-sections.png" alt="a sketch with lines pointing from each spreadsheet tab to its corresponding section in the resume template" />
-            <p>From there, each column within a tab houses a different type of data, such as  a job title, a timeframe, or a description.</p>
-            <img class="max-width diagram" src="/screengrabs/columns-to-data.png" alt="a sketch with lines pointing from each column in the spreadsheet to where it shows up in the resume template" />
-            <p>The checkboxes on the lefthand side are how you tell the template whether to include or exclude a row of data. As you can see, the unchecked rows in the Skills tab do not show up on the resume.</p>
-            <img class="max-width diagram" src="/screengrabs/checkboxes-to-inclusion.png" alt="a sketch demonstrating how unchecked rows in the spreadsheet do not show up in the template" />
+            <p>
+              Basically, this spreadsheet functions as the &quot;backend&quot;
+              of your resume. Each tab, aside from the instructions tab,
+              corresponds to its own section on your resume.
+            </p>
+            <img
+              class="max-width diagram"
+              src="/screengrabs/tabs-to-sections.png"
+              alt="a sketch with lines pointing from each spreadsheet tab to its corresponding section in the resume template"
+            />
+            <p>
+              From there, each column within a tab houses a different type of
+              data, such as a job title, a timeframe, or a description.
+            </p>
+            <img
+              class="max-width diagram"
+              src="/screengrabs/columns-to-data.png"
+              alt="a sketch with lines pointing from each column in the spreadsheet to where it shows up in the resume template"
+            />
+            <p>
+              The checkboxes on the lefthand side are how you tell the template
+              whether to include or exclude a row of data. As you can see, the
+              unchecked rows in the Skills tab do not show up on the resume.
+            </p>
+            <img
+              class="max-width diagram"
+              src="/screengrabs/checkboxes-to-inclusion.png"
+              alt="a sketch demonstrating how unchecked rows in the spreadsheet do not show up in the template"
+            />
+            <span
+              class="tooltip-trigger gsheets-icon"
+              data-tooltip="This icon indicates where we are for any given step. For this step, we're in the Google spreadsheet."
+            ></span>
           </li>
-          <li class="gsheets">When you're ready to move on, make a copy of the spreadsheet and save it as your own.</li>
-            <li class="gsheets">Change the share settings so that &quot;anyone with the
-            link&quot; can view the document.</li>
-          <li class="dr4db">
-            Browse the templates below to decide which one you want to start
-            with. When you decide, click the “use this template” button on the
-            page. This will open up a Glitch project with the template code
-            ready for use.
+          <li>
+            <p>
+              When you're ready to move on, make a copy of the spreadsheet and
+              save it as your own.
+            </p>
+            <span
+              class="tooltip-trigger gsheets-icon"
+              data-tooltip="For this step, we're in the Google spreadsheet."
+            ></span>
+          </li>
+          <li>
+            <p>
+              Change the share settings so that &quot;anyone with the link&quot;
+              can view the document.
+            </p>
+            <span
+              class="tooltip-trigger gsheets-icon"
+              data-tooltip="For this step, we're in the Google spreadsheet."
+            ></span>
+          </li>
+          <li>
+            <p>
+              Browse the templates below to decide which one you want to start
+              with. When you decide, click the “use this template” button on the
+              page. This will open up a Glitch project with the template code
+              ready for use.
+            </p>
             <div id="template-buttons">
               <a target="_blank" href="/track_track/">track_track</a>
               <a target="_blank" href="/cascadian/">cascadian</a>
-              <a target="_blank" href="/button_ups/">button_ups</a
+              <a target="_blank" href="/button_ups/">button_ups</a>
             </div>
+            <span
+              class="tooltip-trigger dr4db-icon"
+              data-tooltip="For this step, we're on this website."
+            ></span>
           </li>
-          <li class="glitch">
+          <li>
             <p>
               On the Glitch project, click the “Remix your own” button below the
               project preview. This will duplicate the template and allow you to
@@ -161,8 +220,12 @@
               expire after 5 days. Create an account if you want to save your
               progress.
             </aside>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
           </li>
-          <li class="glitch">
+          <li>
             <p>
               Once you have the project copy open, go to the
               <code>script.js</code> file (in the lefthand pane) and find the
@@ -170,22 +233,32 @@
               You’ll want to replace these cryptic strings of characters with
               the ID of your Google Spreadsheet.
             </p>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
           </li>
-          <li class="gsheets">
-            To find the ID of your
-              spreadsheet, go back to the spreadsheet and click the “share”
-              button. Click “copy link” and paste the link somewhere you can edit it real
-            quick. Then copy only the characters between
-            &quot;https://docs.google.com/spreadsheets/d/&quot; and
-            &quot;/edit?usp=sharing&quot; in the URL. Replace all the
-            <code>tabURL</code>s in the Glitch file with this new string.
+          <li>
+            <p>
+              To find the ID of your spreadsheet, go back to the spreadsheet and
+              click the “share” button. Click “copy link” and paste the link
+              somewhere you can edit it real quick. Then copy only the
+              characters between
+              &quot;https://docs.google.com/spreadsheets/d/&quot; and
+              &quot;/edit?usp=sharing&quot; in the URL. Replace all the
+              <code>tabURL</code>s in the Glitch file with this new string.
+            </p>
+            <span
+              class="tooltip-trigger gsheets-icon"
+              data-tooltip="For this step, we're in the Google spreadsheet."
+            ></span>
           </li>
           <img
             class="sticky"
             src="/screengrabs/Screenshot 2024-11-20 at 8.42.38 PM.png"
             alt="post-it note showing the key part of the Google Spreadsheet URL highlighted"
           />
-          <li class="glitch">
+          <li>
             <p>
               Add &quot;/1&quot;, &quot;/2&quot;, etc. at the end of each
               <code>tabURL</code> to point to a specific tab in the spreadsheet.
@@ -194,24 +267,69 @@
               These indexes are 1-based and determined based on the order of
               your tabs in the spreadsheet.
             </p>
-            <img class="max-width diagram" src="/screengrabs/tab-order.png" alt="screengrab of each of the tabs in the spreadsheet labeled with &quot;/1&quot;, &quot;/2&quot;, and so on" />
+            <img
+              class="max-width diagram"
+              src="/screengrabs/tab-order.png"
+              alt='screengrab of each of the tabs in the spreadsheet labeled with "/1", "/2", and so on'
+            />
             <aside>
               If you change the order of your tabs in the spreadsheet, you will
               have to update the trailing tab numbers in the
               <code>sections</code> object as well.
             </aside>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
           </li>
-          <li class="glitch">
-            There you have it! &#9786; Your spreadsheet is now hooked up to your
-            Glitch file. Try updating any data in the <span class="green">green</span> cells in the spreadsheet and refresh your Glitch site. If all's gone well, you should see your new data appear in the template.
+          <li>
+            <p>
+              There you have it! &#9786; Your spreadsheet is now hooked up to
+              your Glitch file. Try updating any data in the
+              <span class="green">green</span> cells in the spreadsheet and
+              refresh your Glitch site. If all's gone well, you should see your
+              new data appear in the template.
+            </p>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
           </li>
         </ol>
-        <div class="facilitator-note"><p>Let's pause.</p><p>Are we all seeing our template update when we change data in the spreadsheet? If not, let's troubleshoot!</p></div>
+        <div class="facilitator-note">
+          <p>Let's pause.</p>
+          <p>
+            Are we all seeing our template update when we change data in the
+            spreadsheet? If not, let's troubleshoot!
+          </p>
+        </div>
         <h3>Step #2: Updating your personal information</h3>
-        <p>In order to change the name, email address, and other personal information that shows up on your resume, you'll have to make updates to the <code>index.html</code> file.</p>
+        <p>
+          In order to change the name, email address, and other personal
+          information that shows up on your resume, you'll have to make updates
+          to the <code>index.html</code> file.
+        </p>
         <ol class="steps">
-          <li class="glitch">Open the <code>index.html</code> in Glitch.</li>
-          <li class="glitch">Locate the lines that contain the filler information (e.g. &quot;Your Name&quot;). Replace these lines with your informatiion. You should see the template update accordingly. From here, you can add or remove elements according to what personal information you want on your resume.</li>
+          <li>
+            <p>Open the <code>index.html</code> in Glitch.</p>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
+          </li>
+          <li>
+            <p>
+              Locate the lines that contain the filler information (e.g.
+              &quot;Your Name&quot;). Replace these lines with your information.
+              You should see the template update accordingly. From here, you can
+              add or remove elements according to what personal information you
+              want on your resume.
+            </p>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
+          </li>
         </ol>
         <h3>Step #3: Updating Styles</h3>
         <p>
@@ -221,8 +339,8 @@
         </p>
         <h4>Fonts</h4>
         <p>
-          Fonts are easy to update. One method of inserting a custom font is to go to a
-          source like
+          Fonts are easy to update. One method of inserting a custom font is to
+          go to a source like
           <a
             target="_blank"
             rel="noopener noreferrer external"
@@ -231,7 +349,8 @@
           >
           and select some font families you want to use. Once you have your cart
           filled, follow the embed instructions to install them in your
-          <code>index.html</code>. Then update your <code>stylesheet.css</code> accordingly.
+          <code>index.html</code>. Then update your
+          <code>stylesheet.css</code> accordingly.
         </p>
         <h4>Colors</h4>
         <p>
@@ -261,63 +380,62 @@
           may not require an update in the code. To reiterate these categories
           again here:
         </p>
-        <table>
-          <thead>
-            <tr>
-              <th>do change</th>
-              <th>do change & update</th>
-              <th>do not change</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="tips">
-              <td>
-                <em
-                  >you can update these freely and the changes will be reflected
-                  in the template</em
-                >
-              </td>
-              <td>
-                <em
-                  >if you change these, manual updates will be required in
-                  script.js</em
-                >
-              </td>
-              <td>
-                <em
-                  >these settings are absolutely required for the API to
-                  work!</em
-                >
-              </td>
-            </tr>
-            <tr class="categories">
-              <td>
-                <ul class="table__list">
-                  <li>visibility column</li>
-                  <li>any other columns with your resume data</li>
-                </ul>
-              </td>
-              <td>
-                <ul class="table__list">
-                  <li>tab/section order</li>
-                  <li>tab/section names</li>
-                  <li>number of tabs/sections</li>
-                  <li>column header names</li>
-                </ul>
-              </td>
-              <td>
-                <ul class="table__list">
-                  <li>frozen rows</li>
-                  <li>document access permissions (should be "anyone with the link can view")</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div id="table">
+          <div class="table__col">
+            <div class="col__header" id="col__header-1">do change</div>
+            <div class="col__explanation">
+              <em>
+                you can update these freely and the changes will be reflected in
+                the template
+              </em>
+            </div>
+            <div class="col__data">
+              <ul>
+                <li>visibility column</li>
+                <li>any other columns with your resume data</li>
+              </ul>
+            </div>
+          </div>
+          <div class="table__col">
+            <div class="col__header" id="col__header-2">do change & update</div>
+            <div class="col__explanation">
+              <em>
+                if you change these, manual updates will be required in
+                script.js
+              </em>
+            </div>
+            <div class="col__data">
+              <ul>
+                <li>tab/section order</li>
+                <li>tab/section names</li>
+                <li>number of tabs/sections</li>
+                <li>column header names</li>
+              </ul>
+            </div>
+          </div>
+          <div class="table__col">
+            <div class="col__header" id="col__header-3">do not change</div>
+            <div class="col__explanation">
+              <em>
+                these settings are absolutely required for the API to work!
+              </em>
+            </div>
+            <div class="col__data">
+              <ul>
+                <li>frozen rows</li>
+                <li>
+                  document access permissions (should be "anyone with the link
+                  can view")
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <p>
           If you’re satisfied with the pre-provided section headers (e.g.
           “experience”, “education”, “projects”) and column headers (e.g.
-          “institution”, “degree”, “location”), you can start updating the <span class="green">green</span>
+          “institution”, “degree”, “location”), you can start updating the
+          <span class="green">green</span>
           cells in the spreadsheet with your own information. If you want to
           customize these details, proceed through the following steps.
         </p>
@@ -329,15 +447,28 @@
           <code>script.js</code> file.
         </p>
         <ol class="steps">
-          <li class="gsheets">
-            For consistency's sake, start by renaming the tab in the spreadsheet
-            to whatever you want (i.e. change “awards” to "publications").
+          <li>
+            <p>
+              For consistency's sake, start by renaming the tab in the
+              spreadsheet to whatever you want (i.e. change “awards” to
+              "publications").
+            </p>
+            <span
+              class="tooltip-trigger gsheets-icon"
+              data-tooltip="For this step, we're in the Google spreadsheet."
+            ></span>
           </li>
-          <li class="glitch">
-            Then, in the <code>script.js</code> file, go to the
-            <code>sections</code> object at the top and change the
-            <code>name</code> value to your new section name. This will update
-            the section header on your resume template.
+          <li>
+            <p>
+              Then, in the <code>script.js</code> file, go to the
+              <code>sections</code> object at the top and change the
+              <code>name</code> value to your new section name. This will update
+              the section header on your resume template.
+            </p>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
           </li>
         </ol>
         <h4>To change a column header:</h4>
@@ -348,25 +479,47 @@
           <code>script.js</code>.
         </p>
         <ol class="steps">
-          <li class="gsheets">
-            Update the name of the column header directly in the spreadsheet
-            first. Keep in mind these are case-sensitive. I recommend
-            capitalizing the first letter to keep things consistent.
+          <li>
+            <p>
+              Update the name of the column header directly in the spreadsheet
+              first. Keep in mind these are case-sensitive. I recommend
+              capitalizing the first letter to keep things consistent.
+            </p>
+            <span
+              class="tooltip-trigger gsheets-icon"
+              data-tooltip="For this step, we're in the Google spreadsheet."
+            ></span>
           </li>
-          <li class="glitch">
-            Go to the section that you updated in your <code>script.js</code>.
+          <li>
+            <p>
+              Go to the section that you updated in your <code>script.js</code>.
+            </p>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
           </li>
-          <li class="glitch">
-            Find the line that has the name of your old column header (I like to
-            use <code>CMD + F</code> or <code>CTRL + F</code> for this). It
-            should be something like <code>${row.Organization}</code>. Replace
-            the old header with your new one, as it is written in the
-            spreadsheet (i.e. <code>${row.Company}</code>).
+          <li>
+            <p>
+              Find the line that has the name of your old column header (I like
+              to use <code>CMD + F</code> or <code>CTRL + F</code> for this). It
+              should be something like <code>${row.Organization}</code>. Replace
+              the old header with your new one, as it is written in the
+              spreadsheet (i.e. <code>${row.Company}</code>).
+            </p>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
           </li>
         </ol>
         <div class="facilitator-note">
           <p>Break time!</p>
-          <p>Let's take 10 minutes to ourselves. When we come back, we can either continue with the last section (which entails a more complicated change) OR co-work on our templates while I answer questions.</p>
+          <p>
+            Let's take 10 minutes to ourselves. When we come back, we can either
+            continue with the last section (which entails a more complicated
+            change) OR co-work on our templates while I answer questions.
+          </p>
         </div>
         <h4>To add a new section:</h4>
         <p>
@@ -390,22 +543,47 @@
           or <a href="mailto:info@joannesuk.com">email me</a>.
         </p>
         <ol class="steps">
-          <li class="gsheets">
-            Add a new section by inserting a new tab or “sheet” in the
-            spreadsheet. Name it whatever you want the new section of your
-            resume to be.
+          <li>
+            <p>
+              Add a new section by inserting a new tab or “sheet” in the
+              spreadsheet. Name it whatever you want the new section of your
+              resume to be.
+            </p>
+            <span
+              class="tooltip-trigger gsheets-icon"
+              data-tooltip="For this step, we're in the Google spreadsheet."
+            ></span>
           </li>
-          <li class="gsheets">
-            If you want to make each row’s visibility modifiable, as they are in
-            the original tabs, make the first (leftmost) column the “Visibility”
-            column (case-sensitive) and fill the rows with checkboxes.
+          <li>
+            <p>
+              If you want to make each row’s visibility modifiable, as they are
+              in the original tabs, make the first (leftmost) column the
+              “Visibility” column (case-sensitive) and fill the rows with
+              checkboxes.
+            </p>
+            <span
+              class="tooltip-trigger gsheets-icon"
+              data-tooltip="For this step, we're in the Google spreadsheet."
+            ></span>
           </li>
-          <li>Fill in the rest of the column headers as you desire.</li>
-          <li class="gsheets">
-            After setting up the new section, be sure to freeze the first row in
-            the sheet. This tells the API what to call each column of data.
+          <li>
+            <p>Fill in the rest of the column headers as you desire.</p>
+            <span
+              class="tooltip-trigger gsheets-icon"
+              data-tooltip="For this step, we're in the Google spreadsheet."
+            ></span>
           </li>
-          <li class="glitch">
+          <li>
+            <p>
+              After setting up the new section, be sure to freeze the first row
+              in the sheet. This tells the API what to call each column of data.
+            </p>
+            <span
+              class="tooltip-trigger gsheets-icon"
+              data-tooltip="For this step, we're in the Google spreadsheet."
+            ></span>
+          </li>
+          <li>
             <p>
               In the <code>script.js</code> file, go to the very bottom where it
               says
@@ -417,15 +595,20 @@
 /* -------------------------------------------------------------------------- */
                 </code></pre>
               </div>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
           </li>
-          <li class="glitch">
+          <li>
             <p>
               Underneath this section marker, copy and paste one of the code
               snippets below, according to which template you're using:
             </p>
             <!-- prettier-ignore -->
             <ul>
-          <li class="glitch"><p>track_track</p>
+
+          <li><p>track_track</p>
           <div class="code-block">
             <pre><code class="lang-jsx">.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
@@ -452,7 +635,7 @@
   </code></pre>
           </div>
           </li>
-          <li class="glitch"><p>cascadian</p>
+          <li><p>cascadian</p>
             <!-- prettier-ignore -->
           <div class="code-block">
             <pre><code class="lang-jsx">.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
@@ -486,7 +669,7 @@
   </code></pre>
           </div>
           </li>
-          <li class="glitch"><p>button_ups</p>
+          <li><p>button_ups</p>
           <div class="code-block">
             <pre><code class="lang-jsx">.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">return</span> $.getJSON(<span class="hljs-string">"https://opensheet.elk.sh/"</span> + sections[TAB_NUMBER].tabURL);
@@ -511,10 +694,11 @@
 });
             </code></pre>
           </div>
+          <span class="tooltip-trigger glitch-icon" data-tooltip="For this step, we're in the Glitch template."></span>
           </li>
         </ul>
           </li>
-          <li class="glitch">
+          <li>
             <p>
               Replace all instances of <code>TAB_NUMBER</code> with the number
               of your tab in the spreadsheet. Keep the surrounding code intact.
@@ -523,17 +707,23 @@
               Remember, these tabs are 1-based and chronological. The
               “instructions” tab would be 1, “experience” would be 2, and so on.
             </aside>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
           </li>
-          <li class="glitch">
+          <li>
             <p>
               Replace “// FILL IN YOUR DESIRED HTML OUTPUT HERE” with the DOM
               elements, classes, and column headers that you want for your new
-              section. I like to use template literals for this part so I can write new elements in HTML.</p>
-              <p>If you want the section to match the style of previous
-              sections, use the existing section contents in the
-              <code>script.js</code> as an example. For example, using the
-              cascadian template, I might add a new section including my
-              statement of intent as such:
+              section. I like to use template literals for this part so I can
+              write new elements in HTML.
+            </p>
+            <p>
+              If you want the section to match the style of previous sections,
+              use the existing section contents in the <code>script.js</code> as
+              an example. For example, using the cascadian template, I might add
+              a new section including my statement of intent as such:
             </p>
             <div class="code-block">
               <pre><code class="lang-jsx">.then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
@@ -568,6 +758,10 @@
 });
           </code></pre>
             </div>
+            <span
+              class="tooltip-trigger glitch-icon"
+              data-tooltip="For this step, we're in the Glitch template."
+            ></span>
           </li>
         </ol>
         <h2 id="general-caveats">General Caveats</h2>
@@ -601,8 +795,16 @@
             sensitive information (i.e. passwords, birth dates, etc.) off your
             spreadsheet just in case a bad actor stumbles upon it.
           </li>
-          <li>The Opensheeet API caches responses for 30 seconds before making a new request in order to improve performance and avoid hitting <a target="_blank"
-            rel="noopener noreferrer external" href="https://developers.google.com/sheets/api/limits">Google Sheets' rate limit</a>. This means you'll have to wait 30 seconds after your last update to see the latest edits in your template.
+          <li>
+            The Opensheeet API caches responses for 30 seconds before making a
+            new request in order to improve performance and avoid hitting
+            <a
+              target="_blank"
+              rel="noopener noreferrer external"
+              href="https://developers.google.com/sheets/api/limits"
+              >Google Sheets' rate limit</a
+            >. This means you'll have to wait 30 seconds after your last update
+            to see the latest edits in your template.
           </li>
         </ul>
         <h2 id="closing">Closing</h2>
@@ -611,11 +813,34 @@
           your willingness to learn new things and invest time in a process that
           will pay you forward for job apps to come.
         </p>
-        <p>Thank you also to <a target="_blank"
-            rel="noopener noreferrer external" href="https://cindy-hu.com/">Cindy Hu</a> for co-facilitating this workshop; to Oliver, Dre, and Piece for being the first ones to see utility of a dynamic resume; and to KT and Eliette for being my testers and proofers.</p>
-        <p>This template was made by Jo Suk using Ben Borgers' <a target="_blank"
-            rel="noopener noreferrer external" href="https://github.com/benborgers/opensheet#readme">opensheet API</a> and inspired by Chia Amisola's <a target="_blank"
-            rel="noopener noreferrer external" href="https://ambient.institute/i/sheets/">sheet sites tutorial</a>.</p>
+        <p>
+          Thank you also to
+          <a
+            target="_blank"
+            rel="noopener noreferrer external"
+            href="https://cindy-hu.com/"
+            >Cindy Hu</a
+          >
+          for co-facilitating this workshop; to Oliver, Dre, and Piece for being
+          the first ones to see utility of a dynamic resume; and to KT and
+          Eliette for being my testers and proofers.
+        </p>
+        <p>
+          This template was made by Jo Suk using Ben Borgers'
+          <a
+            target="_blank"
+            rel="noopener noreferrer external"
+            href="https://github.com/benborgers/opensheet#readme"
+            >opensheet API</a
+          >
+          and inspired by Chia Amisola's
+          <a
+            target="_blank"
+            rel="noopener noreferrer external"
+            href="https://ambient.institute/i/sheets/"
+            >sheet sites tutorial</a
+          >.
+        </p>
         <footer>
           <a
             target="_blank"
@@ -634,16 +859,28 @@
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const codeBlocks = document.querySelectorAll(".code-block");
-
-        codeBlocks.forEach((cb) => {
-          cb.addEventListener("scroll", function() {
+        document.querySelectorAll(".code-block").forEach((cb) => {
+          cb.addEventListener("scroll", function () {
             if (cb.scrollLeft + cb.clientWidth >= cb.scrollWidth) {
-              cb.style.boxShadow = "none"; 
+              cb.style.boxShadow = "none";
             } else {
-              cb.style.boxShadow = "inset -30px 0px 25px -25px var(--sky-blue)"; 
+              cb.style.boxShadow = "inset -30px 0px 25px -25px var(--sky-blue)";
             }
           });
+        });
+
+        document.querySelectorAll("img.diagram").forEach((img) => {
+          img.addEventListener("click", function () {
+            this.classList.toggle("zoomed");
+          });
+        });
+
+        document.addEventListener("click", function (event) {
+          const zoomedImage = document.querySelector("img.diagram.zoomed");
+
+          if (zoomedImage && !zoomedImage.contains(event.target)) {
+            zoomedImage.classList.remove("zoomed");
+          }
         });
       });
     </script>

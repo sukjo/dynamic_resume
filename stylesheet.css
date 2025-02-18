@@ -158,7 +158,6 @@ p,
 li,
 h3,
 h4,
-table,
 aside {
   color: var(--platinum);
   margin-bottom: var(--small-margin);
@@ -188,6 +187,7 @@ a {
 
   text-shadow: none;
   text-decoration: none;
+  text-align: center;
 
   font-family: "DM Mono", monospace;
   font-weight: 500;
@@ -196,18 +196,17 @@ a {
   transition: background-color 0.2s linear;
 }
 
-#template-buttons > a:hover {
+#template-buttons > a:hover,
+#template-buttons > a:active {
   background-color: var(--platinum-half);
-  /* color: var(--sky-blue); */
 }
 
 ol.steps > li {
   position: relative;
 }
 
-ol.steps > li::after {
-  content: "";
-  display: block;
+.tooltip-trigger {
+  display: inline-block;
   position: absolute;
   top: 0;
   right: calc(var(--wayfinder-sz) * -2);
@@ -216,25 +215,51 @@ ol.steps > li::after {
   height: var(--wayfinder-sz);
   background-size: contain;
 
+  cursor: pointer;
   -webkit-filter: drop-shadow(0px 0px 6px var(--platinum));
   filter: drop-shadow(0px 0px 6px var(--platinum));
 }
 
-ol.steps > li.gsheets::after {
+.tooltip-trigger::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  width: 10rem;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-color: var(--onyx);
+  color: var(--platinum);
+  padding: calc(var(--padding) / 2);
+  border-radius: var(--border-radius);
+
+  font-size: 0.8rem;
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.02rem;
+  text-align: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.tooltip-trigger:hover::before,
+.tooltip-trigger:active::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+ol.steps .gsheets-icon {
   background-image: url(/screengrabs/sheets-logo.png);
 }
 
-/* ol.steps > li.gsheets:hover::after {
-  content: "This icon tells indicates where we are for any given step. For this step, we're in the Google spreadsheet.";
-} */
-
-ol.steps > li.glitch::after {
-  /* content: "This icon tells indicates where we are for any given step. For this step, we're in the Glitch template."; */
+ol.steps .glitch-icon {
   background-image: url(/screengrabs/glitch-logo.png);
 }
 
-ol.steps > li.dr4db::after {
-  /* content: "This icon tells indicates where we are for any given step. For this step, we're on this website."; */
+ol.steps .dr4db-icon {
   background-image: url(/screengrabs/dynamic-resume-logo.png);
 }
 
@@ -269,7 +294,7 @@ img.diagram {
   transition: transform 0.2s linear, box-shadow 0.2s linear;
 }
 
-img.diagram:hover {
+img.diagram.zoomed {
   transform: scale(2);
   box-shadow: 0px 0px 6px var(--onyx);
   z-index: 20;
@@ -300,7 +325,7 @@ code:not(.lang-jsx) {
 }
 
 .code-block {
-  width: var(--u-width);
+  width: (var(--u-width));
   height: fit-content;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -336,81 +361,67 @@ li > ul > li > .code-block {
 
 /* ---------------------------------- table --------------------------------- */
 
-table {
+#table {
   width: 100%;
-  table-layout: fixed;
-  border-spacing: 0px;
+  display: flex;
+  flex-direction: row;
+  gap: var(--padding);
+  padding-bottom: var(--padding);
+
+  color: var(--platinum);
 }
 
-thead {
-  text-align: left;
+.table__col {
+  flex: 1;
+
+  border: 1px solid var(--platinum);
+  border-radius: var(--border-radius);
 }
 
-th {
+.col__header {
   padding: calc(var(--padding) / 2);
+  height: calc(0.8rem * 2.5);
 
   font-family: "DM Mono", monospace;
   font-weight: 500;
   font-style: normal;
   font-size: 0.8rem;
   text-transform: uppercase;
-
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-  border-top: 2px solid var(--platinum);
-  border-left: 2px solid var(--platinum);
-  border-right: 2px solid var(--platinum);
 }
 
-th:nth-of-type(1) {
+#col__header-1 {
   background-color: var(--viridian);
 }
 
-th:nth-of-type(2) {
+#col__header-2 {
   background-color: var(--gold);
 }
 
-th:nth-of-type(3) {
+#col__header-3 {
   background-color: var(--munsell);
 }
 
-tr.tips > td {
+.col__explanation {
   padding: calc(var(--padding) / 2);
-
-  /* border-radius: 0 0 var(--border-radius) var(--border-radius); */
-  /* border-bottom: 1px solid var(--platinum); */
-  border-left: 2px solid var(--platinum);
-  border-right: 2px solid var(--platinum);
 
   background-color: var(--platinum-quarter);
   font-size: 0.7rem;
+
+  margin-bottom: calc(var(--padding) / 2);
 }
 
-tr.categories > td {
-  border-bottom: 2px solid var(--platinum);
-  border-left: 2px solid var(--platinum);
-  border-right: 2px solid var(--platinum);
-}
+.col__data {
+  padding: calc(var(--padding) / 2);
 
-td {
-  padding-right: var(--padding);
-
-  vertical-align: top;
-}
-
-tbody > tr:nth-of-type(2) > td {
-  /* background-color: red; */
-  padding-top: 1rem;
-}
-
-tr > td {
   font-family: "DM Mono", monospace;
   font-weight: 400;
   font-style: normal;
   font-size: 0.8rem;
 }
 
-ul.table__list > li {
-  margin-left: 0.5rem;
+.col__data > ul > li {
+  margin-left: calc(var(--padding) / 2);
+  margin-bottom: calc(var(--padding) / 2);
 }
 
 /* --------------------------------- asides --------------------------------- */
@@ -428,7 +439,7 @@ aside {
 }
 
 aside::before {
-  content: "\2734";
+  content: "\2737";
   position: absolute;
   top: calc(var(--padding) / 2);
   left: calc(var(--padding) / 2);
@@ -436,7 +447,7 @@ aside::before {
 }
 
 aside::after {
-  content: "\2734";
+  content: "\2737";
   position: absolute;
   top: calc(var(--padding) / 2);
   right: calc(var(--padding) / 2);
@@ -503,7 +514,11 @@ aside::after {
 
 @media only screen and (max-width: 668px) {
   :root {
-    --u-width: 80vw;
+    --u-width: 75vw;
+  }
+
+  main {
+    margin: var(--big-margin) calc(var(--small-margin) * 3);
   }
 
   h1 {
@@ -528,6 +543,20 @@ aside::after {
   }
 
   #template-buttons {
+    flex-direction: column;
+    gap: var(--padding);
     justify-content: space-between;
+  }
+
+  .tooltip-trigger::before {
+    transform: translateX(-100%);
+  }
+
+  #table {
+    flex-direction: column;
+  }
+
+  .col__header {
+    height: calc(0.8rem * 1.5);
   }
 }

@@ -28,7 +28,7 @@ header {
 }
 
 #header-details > :not(:last-child)::after {
-  content: "\2734";
+  content: "\2737";
   padding-left: 0.5rem;
 }
 
@@ -69,7 +69,7 @@ header {
 }
 
 .location-time > :not(:last-child)::after {
-  content: "\2734";
+  content: "\2737";
   padding-left: 0.5rem;
 }
 
